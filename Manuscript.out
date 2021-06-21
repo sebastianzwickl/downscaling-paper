@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{State-of-the-art and progress beyond}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Verschiedene Arten des Downscaling, nicht nur empirisch}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Downscaling integrated assessment model results}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Assessing network-based technology potentials}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Network/grid/infrastrucuture requirements in sustainable energy systems}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Methodology}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Algorithm1: Sequential downscaling disaggregating heat generation per technology from the region to the sub-region level}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Algorithm2: Iterative heat network benchmark and heat generation allocation on the small sub-region level}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Definition of benchmarking indicators to assess heat network infrastructure topology}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Results}{}% 11
+\BOOKMARK [1][-]{section.5}{Conclusions and outlook}{}% 12
+\BOOKMARK [1][-]{appendix.A}{Validation of the downscaled results on the NUTS3 level}{}% 13

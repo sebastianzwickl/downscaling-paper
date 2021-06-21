@@ -1,0 +1,66 @@
+\documentclass[review]{elsarticle}
+\usepackage{lineno,hyperref}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage{amsmath} 
+\usepackage[hang,flushmargin]{footmisc} 
+\usepackage{xcolor}
+\usepackage{array,multirow}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+\usepackage[ruled,vlined,linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+\newcommand{\BREAK}{\STATE \algorithmicbreak}
+\modulolinenumbers[1]
+\setlength{\parindent}{0em}
+\journal{Applied Energy}
+\bibliographystyle{elsarticle-num}
+
+\begin{document}
+\begin{frontmatter}
+\title{Benchmarking local network topology of sustainable heat supply: An open-source approach downscaling integrated assessment model results}
+\author[1]{Sebastian Zwickl-Bernhard\corref{cor1}}
+\ead{zwickl@eeg.tuwien.ac.at}
+\author[2]{Daniel Huppmann}
+\author[1]{Antonia Golab}
+\author[1]{Hans Auer}
+\cortext[cor1]{Corresponding author}
+\address[1]{Energy Economics Group (EEG), Technische Universität Wien, Gusshausstrasse 25-29/E370-3, 1040 Wien, Austria}
+\address[2]{Energy, Climate and Environment (ECE) Program,  International Institute for Applied Systems Analysis (IIASA), Laxenburg, Austria}
+
+\input{0_Abstract.tex}
+\input{1_Introduction.tex}
+\newpage
+\input{2_Stateoftheart.tex}
+\newpage
+\input{3_Methodology.tex}
+\newpage
+\input{4_Results.tex}
+\newpage
+\input{5_Conclusions.tex}
+
+
+
+
+\section*{Declaration of interests}
+None.
+\section*{Declaration of Competing Interest}
+The authors report no declarations of interest.
+\section*{Acknowledgments}
+%This project has received funding from the European Union's Horizon 2020 Research and Innovation Programme under Grant Agreement No. 835896.
+
+\bibliography{mybibfile}
+\appendix
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\section{Validation of the downscaled results on the NUTS3 level}
+modelle bringen, die ergebnisse zeigen. zumindest message ix ergebnisse. 
+
+
+\end{document}
