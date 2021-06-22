@@ -3,7 +3,7 @@ This section aims to describe the proposed approach to transform aggregated quan
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\linewidth]{figures/3_Methodology/Flow_diagram.png}
+	\includegraphics[width=1\linewidth]{figures/3_Methodology/Flow_diagram.pdf}
 	\caption{Basic concept of the downscaling technique using two sequencing algorithms}
 	\label{fig:meth1}
 \end{figure}
@@ -56,7 +56,7 @@ Here, we describe the technique to downscale IAM results of the low temperature 
 \label{Alg:1}
 \end{algorithm}}\vspace{0.3cm}
 
-In descending order of network infrastructure requirement, the heat generation technologies are iterated (line $5$ and initialization). All sub-regions are collected that fulfill the heat network infrastructure requirements of technology $t$ (line $8$). Then, those sub-regions with zero heat demand (e.g., as a result of the supply by other heat generation technologies and the sequential process) are not further pursued and removed from the collection of sub-regions (line $10$ and $11$). The total heat demand of all sub-regions that fulfill all criterias and provide proper settings (line $12$) are used to disaggregate heat generation to the sub-regions accounting for the individual heat demand (line $16$). Finally, the heat demand at the sub-region is reduced to ensure that the total demand is covered by the heat generation technologies. 
+In descending order of network infrastructure requirement, the heat generation technologies are iterated (line $5$ and initialization). All sub-regions are collected that fulfill the heat network infrastructure requirements of technology $t$ (line $8$). Then, those sub-regions with zero heat demand (e.g., as a result of the supply by other heat generation technologies and the sequential process) are not further pursued and removed from the collection of sub-regions (line $10$ and $11$). The total heat demand of all sub-regions that fulfill all criterias and provide proper settings (line $12$) are used to disaggregate heat generation to the sub-regions accounting for the individual heat demand (line $16$). Finally, the heat demand at the sub-region is reduced to ensure that the total demand is covered by the heat generation technologies. \textcolor{magenta}{Wie bereits in Abbildung 1 angedeutet sind diese Ergebnisse, also auf NUTS3 Ebene die Inputdaten für Algorithm2. Dieser macht das und das und wird in der folgenden Section detailiert beschrieben.}
 
 \subsection{Algorithm2: Iterative heat network benchmark and heat generation allocation on the small sub-region level}
 Hier steht etwas.
@@ -114,19 +114,17 @@ Hier steht etwas.
 
 
 
+\subsection{Case study, scenario definition, and empirical settings}
 
-%\section{Methodology}
-%This section explains the methodology applied. Figure \ref{fig:meth1} illustrates the basic concept of the proposed methodological approach including the two main stages downscaling and benchmarking. We give here a short description of the single steps of the approach (see state transition label in blue) and refer for a detailed description to the following sections. As an input, we use the results of the decarbonized low temperature heating sector of the European H2020 project openENTRANCE obtained by the IAM GENeSYS-MOD v2.0 which are highly spatial aggregated (NUTS0). We apply a downscaling technique (sequential downscaling) accounting for the infrastructure requirements of centralized heat supply options and population density as criteria. This provides heat generation technology on a subregion level (NUTS3), which are then linearly downscaled by using population as proxy to obtain heat supply area topology on a high granularity (LAU). Finally, the topology of network-based heat supply is benchmarked using tailor-made graph-theoretical indicators. 
-%
-%\vspace{0.3cm}
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=1\linewidth]{figures/Method.png}
-%	\caption{Basic concept of the proposed two-stage methodological approach}
-%	\label{fig:meth1}
-%\end{figure}
-%
-%
+\subsubsection{An Austrian case study obtained from the H2020 project openENTRANCE}
+
+\subsubsection{Definition of the four decarbonization scenarios}
+
+\subsubsection{Empirical settings and open-source availability}
+
+
+
+
 %\subsection{Decarbonization of the European heating sector by transitioning the heat generation technology mix on country level}
 % viele arbeiten behandeln die decarbonisierung von energy system.
 % manche von dieser setzen auch ihren fokus auf das europäische energiesystem, wenngleich unterschiedliche aggregationslevels berücksichtigt werden. 
@@ -187,130 +185,3 @@ Hier steht etwas.
 %	\caption{Tailor-made benefit indicators (including their mathematical formulation) and sustainable network-based heat supply-related issues associated with them}
 %	\label{tab:revenues}
 %\end{table}
-%
-%
-%diese sind in der tabelle dargestellt. 
-%und dabei auch gleichzeitig die energiewirtschaftliche fragestellung die durch bewertung dieses indicators erfasst werden kann.
-%
-%\subsubsection{Average weighted cluster coefficient}
-%
-%\subsubsection{?}
-%rename global efficiency
-%global distance efficiency
-%
-%\subsubsection{Average distance }
-%
-%\subsection{Case study and scenario definition}
-%Österreich und so weiter 
-%Storylines von openENTRANCE.
-%
-%
-%
-%
-%%\newpage
-%%\subsection{Extension by sequential linear downscaling algorithm using population density as an additional criteria}
-%%As already mentioned in this section and in the introduction above, there are limitations of the existing downscale algorithms for energy systems related to energy technologies' network infrastructure needs. In order to provide a methodological approach overcoming these limitations, this work develops a sequential linear downscaling framework. The fundamental idea of the proposed approach can be summarized as follows:
-%
-%%\begin{itemize}[--]
-%%	\item Specific energy technologies in energy technology portfolios are network-based, in particular in the heating and cooling sector (e.g., technologies feeding into district heating/cooling grids)
-%%	\item Population density as the key downscaling driver for network-based energy technologies provides goes beyond the usual practice for downscaling by population (or GDP) only and at the same time accounts for energy infrastructure and network potentials to a greater extent
-%%\end{itemize}
-%
-%\begin{itemize}
-%	\item \textcolor{magenta}{Population density und daraus folgt sehr guter Rückschluss auf Netzinfrastruktur und nicht allzu weit entfernt von population density}
-%	\item \textcolor{magenta}{Anwendbarkeit und meist daten verfügbar NUTS3 oder sogar noch hochauflösender}
-%	\item \textcolor{magenta}{historisch genau dort wo dichtbesiedelt, Arbeiten zeigen, dass genau dort network-based energy service supply}
-%\end{itemize}
-%
-%\subsubsection{Algorithm definition}
-%
-%% Entwicklung der bevölkerungsdichte extrapolieren von historischen werten. 
-%
-%% wie bekomme ich den heat demand per territory
-%% Anschließend beschreiben welche Technologie bezüglich sigma unterschieden werden muss. 
-%% bundeslastverteiler auch beschreiben, also aufteilung
-%% limitation eingehen, dass eben keine/kaum netzinfrastruktur berücksichtigt wird
-%% kleine anteile von energy carriers die netzwork-based high-efficient supply ermöglichen würden dann über/unterschätzt werden. 
-%% daraus leitet sich ab, dass netzinfrastruktur berücksichtigt werden muss, um die lokalen versorgungspotentiale besser abschätzen zu können. 
-%% abbildung eventuell herein, dass dadurch hydrogen/geothermie im zillertal vorkommen würden.
-%
-%
-%
-%
-%
-%
-%
-%
-%% SEQUENTIAL EMPIRICAL DOWNSCALING ACCOUNTING FOR TECHNOLOGIES' GRID Infrastructure needs
-%
-%% Residuallast bestimmen. 
-%% Aggregierte Policy 
-%% Vorteile schon jetzt Strom in der Fläche und punktuell Erweiterungen der Netzinfrastruktur
-%
-%% (A) Teil pro Bundesland 
-%% (B) Teil pro Land Lastverteiler auf Landesebene.
-%% Federal education
-%
-%% Numerical example 
-%% Scenario definition 
-%
-%
-%
-%
-%
-%
-%
-
-%\subsubsection{Extrapolierung der population density}
-%%	$q \longleftarrow$ Energy technology generation of an energy technology $t \in T$\;
-%%	$\sigma \longleftarrow$ Infrastructure requirements of an energy technology $t \in T$\;
-%%	$S \longleftarrow$ Territories on a high spatial granularity (e.g., NUTS3)\;
-%%    $\omega \longleftarrow$ Heat demand of the territory $s \in S$\;
-%%	$\rho \longleftarrow$ Population density of the territory $s \in S$\;
-%\subsubsection{Effects on network-based energy service need supply and graph theory}
-%
-%%\subsubsection{Graph theory}
-%%
-%%% Struktur und Umweltparameter von Netzbetreibern
-%%% Struktur und Topographie der Netze entscheident
-%%% Effizienzvergleich Auswirkungen
-%%
-%
-%
-%\subsection{Numerical example and scenario definiton}
-%
-%%\subsubsection{Benefits compared to historical oriented downscaling}
-%%% backward-looking history/future - mapping difficult 
-%%% technologies 
-%%% discuptive development 
-%%% old thinking, energy intensity, etc.
-%%% on-site often electric-based energy service supply  or network-based
-%
-%
-%
-%
-%% \subsubsection{Downscaled results of integrated assessment models}
-%% variablen anführen, die downgescaled werden sollten. und dann eventuell für welche variablen dieser ansatz auch hilfreich sein könnte...
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%
-%\newpage

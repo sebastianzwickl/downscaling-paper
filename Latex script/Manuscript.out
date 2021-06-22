@@ -8,6 +8,11 @@
 \BOOKMARK [2][-]{subsection.3.1}{Algorithm1: Sequential downscaling disaggregating heat generation per technology from the region to the sub-region level}{section.3}% 8
 \BOOKMARK [2][-]{subsection.3.2}{Algorithm2: Iterative heat network benchmark and heat generation allocation on the small sub-region level}{section.3}% 9
 \BOOKMARK [2][-]{subsection.3.3}{Definition of benchmarking indicators to assess heat network infrastructure topology}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{Results}{}% 11
-\BOOKMARK [1][-]{section.5}{Conclusions and outlook}{}% 12
-\BOOKMARK [1][-]{appendix.A}{Validation of the downscaled results on the NUTS3 level}{}% 13
+\BOOKMARK [2][-]{subsection.3.4}{Case study, scenario definition, and empirical settings}{section.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.4.1}{An Austrian case study obtained from the H2020 project openENTRANCE}{subsection.3.4}% 12
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Definition of the four decarbonization scenarios}{subsection.3.4}% 13
+\BOOKMARK [3][-]{subsubsection.3.4.3}{Empirical settings and open-source availability}{subsection.3.4}% 14
+\BOOKMARK [1][-]{section.4}{Results}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Heat technology generation on the sub-region \(NUTS3\) level}{section.4}% 16
+\BOOKMARK [1][-]{section.5}{Conclusions and outlook}{}% 17
+\BOOKMARK [1][-]{appendix.A}{Validation of the downscaled results on the NUTS3 level}{}% 18
