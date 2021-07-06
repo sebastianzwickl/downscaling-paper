@@ -1,8 +1,29 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{auer2020quantitative}
+H.~Auer, P.~C. del Granado, D.~Huppmann, P.-Y. Oei, K.~Hainsch, K.~L{\"o}ffler,
+  T.~Burandt, {Quantitative Scenarios for Low Carbon Futures of the
+  Pan-European Energy System}, Deliverable D3.1, openENTRANCE,
+  \url{https://openentrance.eu/} (2020).
+
+\bibitem{auer2020development}
+H.~Auer, P.~C. del Granado, P.-Y. Oei, K.~Hainsch, K.~L{\"o}ffler, T.~Burandt,
+  D.~Huppmann, I.~Grabaak, Development and modelling of different
+  decarbonization scenarios of the {E}uropean energy system until 2050 as a
+  contribution to achieving the ambitious 1.5°{C} climate target -
+  establishment of open source/data modelling in the {E}uropean {H}2020 project
+  open{ENTRANCE}, e{\&}i {E}lektrotechnik und {I}nformationstechnik (2020)
+  1--13.~\href {https://doi.org/https://doi.org/10.1007/s00502-020-00832-7}
+  {\path{doi:https://doi.org/10.1007/s00502-020-00832-7}}.
+
+\bibitem{burandt2018genesys}
+T.~Burandt, K.~L{\"o}ffler, K.~Hainsch, Genesys-mod v2. 0-enhancing the global
+  energy system model: Model improvements, framework changes, and european data
+  set, Tech. rep., DIW Data Documentation (2018).
 
 \end{thebibliography}
