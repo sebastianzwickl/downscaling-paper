@@ -1,4 +1,4 @@
-\section{Results}
+\section{Results and discussion}
 This section presents the results for the proposed Austrian case study for the target year 2050. Four different storylines are investigated covering a wide range of possible future developments of the European and Austrian energy system. Section \ref{res:1} shows the heat generation mix of the low temperature heat supply on the national level. These results are subsequently used for the demonstration of the proposed downscaling methodology. Section \ref{res:2} goes into a higher spatial granularity and shows the heat generation on the sub-region and small-subregion level. Section \ref{res:3} presents the potentials of network-based low temperature heat supply as implication of the four different storylines and European deep decarbonization respectively. Section \ref{res:4} presents the low temperature heat networks on the small sub-region level. Finally, Section \ref{res:5} compares the results of the work with existing low temperature heat networks by using heat density as criteria.
 
 \subsection{Low temperature heat supply in Austria 2050: four different decarbonization scenarios obtained from the H2020 project openENTRANCE}\label{res:1}
@@ -47,108 +47,34 @@ Figure \ref{fig:res1} shows the low temperature heat technology generation on di
 \end{sidewaysfigure}
 \newpage
 \subsection{Austrian sub-regions with high potentials for centralized low temperature heat supply resulting from aiming the decarbonization}\label{res:3}
-As already indicated by Figure \ref{fig:res1}, the results show that there are only a limited number of sub-regions in Austria that have sufficient population and thus heat density to allowing centralized heat supply. Figure \ref{fig:res2} shows a heatmap for centralized heat supply in Austria 2050. Thereby, the spatial granularity corresponds to sub-regions or the NUTS3 level respectively. The corresponding six sub-regions are supplied by the heat networks independent of the storylines. However, the individual quantities of centralized heat supply per sub-region do differ between the storylines (see also exemplarily the heat technology generation mix of the sub-region AT127 in the middle of Figure \ref{fig:res1}). 
-
-% Zwei Anmerkungen sehr wichtig. 1) Abbildung zeigt nur centralized heat supply. in jeder sub-region gibt es auch einspeisende technologien wie abbildung 1 middle die nicht centralized network sind sondern on-site wärme versorgen. Ensprechend sind alle Gebiete die völlig weiß sind vollständig über on-site technologies versorgt. 2) Weisen die markierten Gebiete auch die höchste Bevölkerungsdichte auf. diese varriiert zwischen 180 (AT239) und 5000 (AT130). 
-% Guten Überblick über centralized networks aber für network topology noch deutlich zu aggregiert auf der einen seite und liefert auch entsprechend sehr geringe wärmedichte (vgl. kapitel 4.5). Consequently wird in der folgenden section die network topology detailiert untersucht und diskutiert. 
+As already indicated by Figure \ref{fig:res1}, the results show that there are only a limited number of sub-regions in Austria that have sufficient population and thus heat density to allowing centralized heat supply. Figure \ref{fig:res2} shows a heatmap for centralized heat supply in Austria 2050. Thereby, the spatial granularity corresponds to sub-regions or the NUTS3 level respectively. The corresponding six sub-regions are supplied by the heat networks independent of the storylines. However, the individual quantities of centralized heat supply per sub-region do differ between the storylines (see also exemplarily the heat technology generation mix of the sub-region AT127 in the middle of Figure \ref{fig:res1}). In addition, two comments are essential in this context. Firstly, that Figure \ref{fig:res2} only shows the quantity of centralized heat supply per sub-region. At the same time, heat generation technologies that are not fixed to a central heat distribution network also supply some parts of the heat demand there (see again exemplarily the heat technology generation mix of the sub-region AT127 in the middle of Figure \ref{fig:res1}). Therefore, in those sub-regions in Figure \ref{fig:res2} that are completely white and thus do not have a supply by a centralized heat network, it is shown by the results that the heat demand there is completely covered by technologies that do not require a heat network infrastructure. And secondly, that as expected, the coloured areas are those with the highest population density. This varies between \SI{229}{persons \per \kilo\metre^2} (AT323 - Salzburg and sourroundings) and \SI{5124}{persons \per \kilo\metre^2} (AT130 - Vienna). As indicated in Figure \ref{fig:res2} (orange box), in the following section, the marked sub-regions are further spatially dissaggregated. Subsequently, their heat network topology is analyzed. 
 
 \begin{sidewaysfigure}
 	\centering
 	\includegraphics[width=1\linewidth]{figures/4_Results/Heatmap.eps}
-	\caption{}
+	\caption{Centralized low temperature heat supply in Austria 2050. Six sub-regions provide sufficient values of population density to supply parts of the low temperature heat demand by heat networks. The remaining heat demand is supplied by on-site heat technology options. }
 	\label{fig:res2}
 \end{sidewaysfigure}
 
+\newpage
 \subsection{Low temperature heat network topology on the small sub-region level}\label{res:4}
+This section analyzes the heat network topology of those regions, that provide sufficient characteristic in terms of population density for centralized heat supply. Figure \ref{fig:res3} shows the boxplot of the benchmark indicator value for the sub-region AT127 (including all small sub-regions). The number of small sub-regions supplied by the centralized heat network is plotted on the horizontal axis. Note that this number decreases from left to right. It becomes visible that by removing small sub-regions, namely iteratively those with the smallest indicator value, the mean indicator value of the entire remaining heat network increases. In addition, the maximum value of the indicator also increases from under 1.64 to over 7.16. In the present example, the number of small sub-regions supplied by the centralized heat network decreases from \SI{75}{} to \SI{47}{} (\SI{-37.3}{\%}). The iteratively reduction of supplied small sub-regions does not necessarily result in a contigous graph. For example, three small sub-regions form a subgraph that is separate from the other network (see upper right in the green box in Figure \ref{fig:res3}).\newline
+
+The results discussed above suggest that reducing the number of small sub-regions supplied by the centralized heat network increase the indicator value and thus the efficiency of the heat network topology. Simultaneously, this also increases the heat density of the supply area. In the following subsection, the obtained heat density values of the heat networks are compared with existing values and today's minimum required values for centralized heat networks.
 
 \begin{sidewaysfigure}
 	\centering
 	\includegraphics[width=1\linewidth]{figures/4_Results/boxplot.eps}
-	\caption{}
+	\caption{Weighted indicator value of the low temperature heat network at the sub-region AT127 (South Viennese environs) for different numbers of areas supplied by the centralized heat networks.}
 	\label{fig:res3}
 \end{sidewaysfigure}
-
+\newpage
 \subsection{Comparison of existing and future projections of low temperature heat networks using heat and population density}\label{res:5}
+This section synthesizes the results in the context of heat density values of centralized heat networks and compares the obtained future projections of sustainable centralized heat supply with current minimum required heat density standards of heat networks. Figure \ref{fig:res4} shows the heat density of low temperature heat networks for different the different proposed downscaling techniques and the four different storylines. The population density is shown on the horizontal axis. The black triangles mark the minimum required heat density for today's centralized heating networks at a connection rate of \SI{90}{\%} in Austria.\footnote{See in this context for example \url{http://www.austrian-heatmap.gv.at/karte/}.} The circles ($\bullet$) mark the default downscaling with only population as criterion. Therefore, the heat density of the sub-regions increases linearly with the population density (see also the zoomed out area in the left subfigure with population density $\leq 150 \frac{persons}{km^2}$). The diamonds ($\blacklozenge$) mark the heat density values obtained by Algorithm 1 (and thus without supply area reduction). As a result, the heat density per sub-region increases (see the zoomed out area in the middle subfigure with population density $\leq 500 \frac{persons}{km^2}$). The stars ($\bigstar$) mark the heat density resulting by Algorithm 2. In order to highlight the effects of the different downscaling techniques, the differences of the resulting heat densities to today's minimum required values is shown for a sub-region by the three green bars for the \textit{Techno-Friendly} storyline. As the comparison of the green bars shows, the difference is again significantly reduced by applying Algorithm 2.
 
 \begin{sidewaysfigure}
 	\centering
 	\includegraphics[width=1\linewidth]{figures/4_Results/Heat_density_gap.eps}
-	\caption{}
+	\caption{Heat densities for different population densities, decarbonization storylines, and downscaling techniques. Reducing significantly the gap between today's minimum required heat density (\SI{10}{\frac{GWh}{km^2}} at a connection rate of \SI{90}{\%}) by Algorithm 2 in comparison with default population-based downscaling.}
 	\label{fig:res4}
 \end{sidewaysfigure}
-
-
-
-
-%This section presents and discusses the results of the invesigated Austrian case study. Section \ref{res:1} elaborates on the heat generation technology options supplying the low temperature heat demand on the sub-region level. Section \ref{res:2} deals with the topology of low temperature heat networks on the small sub-region (LAU) level. Finally, Section \ref{res:3} compares the heat densities of low temperature heat networks obtained by downscaling with those from existing networks. 
-
-
-
-
-
-
-
-
-
-
-
-
-%Erster Absatz beschreibt die Abbildung mit den Stacked bar plot. Man sieht, dass die network-based technologies nur in den dichtbesiedelten Gebieten genutzt werden. Dort einen erheblichen Anteil ausmachen. Wie viel machen sie dort aus? eventuell ein paar zahlen hier einfügen. unterschiedliche Mengen in den vier szenarien, wo unterscheiden sie sich - in wien ist starker unterschied zu sehen. restliche gebiete mit network-based eher gleichbleibend. wie wird es in den anderen gebieten versorgt. welche dominierenden technologien/energy carriers gibt es dort.
-%
-%Für weitere Überlegungen ist network-based weiter untersucht. abbildung 3 zeigt die heatmap von centralized heat supply. im folgenden kapitel sind nun die ergebnisse weiter hinuntergebrochen auf LAU ebene um dortige topologien zu untersuchen. 
-%
-%\begin{sidewaysfigure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{figures/4_Results/Spatial_results.eps}
-%	\caption{}
-%	\label{fig:res1}
-%\end{sidewaysfigure}
-%
-%\begin{sidewaysfigure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{figures/4_Results/boxplot.eps}
-%	\caption{}
-%	\label{fig:res1}
-%\end{sidewaysfigure}
-%
-%\begin{sidewaysfigure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{figures/4_Results/Heatmap.eps}
-%	\caption{}
-%	\label{fig:res1}
-%\end{sidewaysfigure}
-%
-%\begin{sidewaysfigure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{figures/4_Results/Heatmap_on-site.eps}
-%	\caption{}
-%	\label{fig:res1}
-%\end{sidewaysfigure}
-
-
-
-%\begin{sidewaysfigure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{figures/4_Results/NUTS3.eps}
-%	\caption{}
-%	\label{fig:res1}
-%\end{sidewaysfigure}
-%
-%\begin{sidewaysfigure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{figures/4_Results/Heatmap.eps}
-%	\caption{}
-%	\label{fig:res2}
-%\end{sidewaysfigure}
-
-%\newpage
-%\subsection{Centralized heat supply topology on the small sub-region (LAU) level}\label{res:2}
-%Die untersuchung ist für alle NUTS 3 regions durchgeführt, die centralized heat supply haben. im nachfolgenden werden die ergebnisse von 1 oder 2 sub-regions detailliert dargestellt. In der Comparison sind dann die ergebnisse von allen regionen berücksichtigt. für weitere ergebnisse, deren darstellung bzw. genauen zahlenwerten wird auf das entprechende open-source repository auf github verwiesen, dass alles beinhaltet. 
-%
-%Dann hier eine abbildung von linear downscaling auf LAU ebene und wie die Topology aussehen würde (anmerkung, dass dies vor anwendung von algorithmus 2 der fall wäre). Dem gegenüber ist die nächste abbildung dann das ergebnisse für dieses gebiet nach algorithmus 2. wie verändert sich das netzwerk, welche punkte sind verloren gegangen und welche haben an menge hinzubekommen. bedeutet also, dass on-site generation lokal ersetz wurde und nun bevorzugt über das netzwerk versorgt wird wohingegen der entgegengesetzte prozess bei anderen knoten zu erkennen ist. 
-%
-%\subsection{Comparison of the results with existing heat network infrastructures}\label{res:3}
-%Vergleich wird über die heat densities angestellt. 
-
-
-
