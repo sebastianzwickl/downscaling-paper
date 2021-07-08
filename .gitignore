@@ -2,6 +2,9 @@
 *.aux
 *.log
 *.toc
+*.out
+*.spl
+*.gz
 
 # BibTeX
 *.bbl
