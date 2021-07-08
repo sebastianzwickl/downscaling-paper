@@ -56,10 +56,11 @@ Here, we describe the technique to downscale IAM results of the low temperature 
 \label{Alg:1}
 \end{algorithm}}\vspace{0.3cm}
 
-In descending order of network infrastructure requirement, the heat generation technologies are iterated (line $5$ and initialization). All sub-regions are collected that fulfill the heat network infrastructure requirements of technology $t$ (line $8$). Then, those sub-regions with zero heat demand (e.g., as a result of the supply by other heat generation technologies and the sequential process) are not further pursued and removed from the collection of sub-regions (line $10$ and $11$). The total heat demand of all sub-regions that fulfill all criterias and provide proper settings (line $12$) are used to disaggregate heat generation to the sub-regions accounting for the individual heat demand (line $16$). Finally, the heat demand at the sub-region is reduced to ensure that the total demand is covered by the heat generation technologies. \textcolor{magenta}{Wie bereits in Abbildung 1 angedeutet sind diese Ergebnisse, also auf NUTS3 Ebene die Inputdaten für Algorithm2. Dieser macht das und das und wird in der folgenden Section detailiert beschrieben.}
+In descending order of network infrastructure requirement, the heat generation technologies are iterated (line $5$ and initialization). All sub-regions are collected that fulfill the heat network infrastructure requirements of technology $t$ (line $8$). Then, those sub-regions with zero heat demand (e.g., as a result of the supply by other heat generation technologies and the sequential process) are not further pursued and removed from the collection of sub-regions (line $10$ and $11$). The total heat demand of all sub-regions that fulfill all criterias and provide proper settings (line $12$) are used to disaggregate heat generation to the sub-regions accounting for the individual heat demand (line $16$). Finally, the heat demand at the sub-region is reduced to ensure that the total demand is covered by the heat generation technologies. 
+%\textcolor{magenta}{Wie bereits in Abbildung 1 angedeutet sind diese Ergebnisse, also auf NUTS3 Ebene die Inputdaten für Algorithm2. Dieser macht das und das und wird in der folgenden Section detailiert beschrieben.}
 
 \subsection{Algorithm2: Iterative heat network benchmark and heat generation allocation on the small sub-region level}
-Hier steht etwas.
+Text.
 
 
 \scalebox{1}{
@@ -107,63 +108,15 @@ Hier steht etwas.
 		}\caption{Iterative benchmark and disaggregation algorithm}
 	\end{algorithm}}
 
+\subsection{Mixed-integer linear optimization problem maximizing heat densities}
 
-
-\subsection{Definition of benchmarking indicators to assess heat network infrastructure topology}
-
-
-
-
-\subsection{Case study, scenario definition, and empirical settings}
-
-\subsubsection{An Austrian case study obtained from the H2020 project openENTRANCE}
-
-\subsubsection{Definition of the four decarbonization scenarios}
-
-\subsubsection{Empirical settings and open-source availability}
+\subsection{Open-source environment and availability}
 
 
 
 
-%\subsection{Decarbonization of the European heating sector by transitioning the heat generation technology mix on country level}
-% viele arbeiten behandeln die decarbonisierung von energy system.
-% manche von dieser setzen auch ihren fokus auf das europäische energiesystem, wenngleich unterschiedliche aggregationslevels berücksichtigt werden. 
-% message model zum beispiel teilt europa in 3 regionen ein wodurch schon hier downscaling auf länderebene techniques notwendig werden.
-% in dieser arbeit werden genesys-mod als teil des european 2020 projects openENTRANCE verwendet. 
-% kurze erklärung von openENTRANCE
-% How do results look like (which technologies – cite ei paper here); different results in principle for the four different storylines, which heads to different amounts of heat production per technology but the set of technologies is more or less the same; only weights differ. Note to section 3.5 case study and scenario definition
-% storylines
-% Exact numbers in the available on github and scenario explorer. 
-% zwei wesentliche gründe. aufsplittung auf nationaler ebene und genaue unterscheidung nach sektoren der ergebnisse
-% fokus auf residential and commercial heating sector was gleichermaßen bedeutet low temperature heat supply. 
-% Vorteil, dass auf natioanler ebene aber immer noch no high spatial resolution – aggregation bias. 
-% Implications on heat supply on local level, we have to consider infrastructure/network. Overcome the aggregation bias from IAMs to obtain local implications policies. 
-% Very simple approach is to consider infrastructure. 
-% However not easy to include but population density could be used as an indicator
-% 
-%\subsection{Sequential linear downscaling algorithm}
-%
-%
-%
-%
-%%\subsection{Existing empirical-based downscaling approaches of values/results from energy systems}
-%%There are several approaches in the literature for empirical-based downscaling of aggregated and high-level values/results from energy systems to a higher granularity resolution (e.g., from the country level to the local level). Among others, two different methodological approaches for downscaling exist, namely linear and convergence downscaling. Discussing them qualitatively here, respecting their strengths/benefits and weaknesses, provides the starting point for the sequential downscaling algorithm developed in this work. In general, both approaches emphasis on different fields of application. Linear downscaling is static and puts the focus on the optimal dissaggregation of values/results taking into account a specific observation time (e.g., a specific year) whereas convergence downscaling focuses in particular on the temporal characterisitcs of the downscaled values. However, both downscaling techniques being based on specific key downscaling driver (so-called proxy), independent of the techniques' time period under consideration. 
-%%
-%%\begin{itemize}
-%%	\item \textcolor{magenta}{zwei equations einfügen für static und convergence downscaling}
-%%	\item \textcolor{magenta}{welche proxys werden verwendet: gdp and population, manchmal auch emissionen}
-%%	\item \textcolor{magenta}{Grundsätzlich auch kombinationen dieser beiden möglich und spannend, aber müssen immer speziell (tailor-made) untersucht werden pro sektor, hier kurz qualitiative ansprechen wie für weitere sektoren downscaling aussehen könnte, z.b. Freight transportation: population+gdp (qualitative beschreiben)}
-%%	\item \textcolor{magenta}{Welcher Ansatz verfolgt wird hängt von der konkreten Fragestellung ab}
-%%	\item \textcolor{magenta}{Kann auch von der Datenlage abhängen, Zeitliche Entwicklung mit Unsicherheit behaftet, teilweise nicht öffentlich verfügbar}
-%%	\item \textcolor{magenta}{Literatur verweisen wo diese Ansätze sehr genau gezeigt sind: z.B. Matthew für convergence}
-%%	\item \textcolor{magenta}{Bezugnehmend auf den scope dieser arbeit infrastrukturplanung ==> static}
-%%	\item \textcolor{magenta}{gleichzeitig hat die einleitung und state of the art gezeigt, dass bisherige ansätze limitations bezüglich netzinfrastruktur aufzeigen}
-%%\end{itemize}
-%\subsection{Transformation of spatial distributed network-based heat supply to network graphs}
-%
-%\subsection{Definition of benchmarking indicators to assess heat network graphs on a local level}
-%This section aims to describe comprehensively the introduced tailor-made benefit indicators used to benchmark the obtained heat network graphs. In general, benefit indicators are a well-known instrument to enhance the understanding of complex relations and they are often used to quantify/monitor results in different fields of investigation. In any case, benefit indicators per se are no one-fits-all solutions which lead to the necessity of tailor-made adaptions for each specific application. In this work, a suite of benefit indicators is introduced which bases on energy-related publications in the literature but also on studies associated with further fields of science such as network theory in general, biology, telecommunication and others. 
-%
+
+
 %\begin{table}[h]
 %	\setlength{\extrarowheight}{0.8em}
 %	\centering

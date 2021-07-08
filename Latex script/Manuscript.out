@@ -2,15 +2,12 @@
 \BOOKMARK [1][-]{section.2}{Methodology}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Algorithm1: Sequential downscaling disaggregating heat generation per technology from the region to the sub-region level}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Algorithm2: Iterative heat network benchmark and heat generation allocation on the small sub-region level}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Definition of benchmarking indicators to assess heat network infrastructure topology}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Case study, scenario definition, and empirical settings}{section.2}% 6
-\BOOKMARK [3][-]{subsubsection.2.4.1}{An Austrian case study obtained from the H2020 project openENTRANCE}{subsection.2.4}% 7
-\BOOKMARK [3][-]{subsubsection.2.4.2}{Definition of the four decarbonization scenarios}{subsection.2.4}% 8
-\BOOKMARK [3][-]{subsubsection.2.4.3}{Empirical settings and open-source availability}{subsection.2.4}% 9
-\BOOKMARK [1][-]{section.3}{Results and discussion}{}% 10
-\BOOKMARK [2][-]{subsection.3.1}{Low temperature heat supply in Austria 2050: four different decarbonization scenarios obtained from the H2020 project openENTRANCE}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.2}{Decaronized low temperature heat technology generation on different spatial granularity levels}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.3}{Austrian sub-regions with high potentials for centralized low temperature heat supply resulting from aiming the decarbonization}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.4}{Low temperature heat network topology on the small sub-region level}{section.3}% 14
-\BOOKMARK [2][-]{subsection.3.5}{Comparison of existing and future projections of low temperature heat networks using heat and population density}{section.3}% 15
-\BOOKMARK [1][-]{section.4}{Conclusions and outlook}{}% 16
+\BOOKMARK [2][-]{subsection.2.3}{Mixed-integer linear optimization problem maximizing heat densities}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Open-source environment and availability}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Results and discussion}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Low temperature heat supply in Austria 2050: four different decarbonization scenarios obtained from the H2020 project openENTRANCE}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Decarbonized low temperature heat technology generation on different spatial granularity levels}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Austrian sub-regions with high potentials for centralized low temperature heat supply resulting from aiming the decarbonization}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.4}{Low temperature heat network topology on the small sub-region level}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.5}{Comparison of existing and future projections of low temperature heat networks using heat and population density}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Conclusions and outlook}{}% 13
