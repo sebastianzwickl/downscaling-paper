@@ -1,41 +1,10 @@
 \documentclass[review]{elsarticle}
-\usepackage{lineno,hyperref}
-\usepackage{subcaption}
-\usepackage{siunitx}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{appendix}
-\usepackage{amsmath} 
-\usepackage[hang,flushmargin]{footmisc} 
-\usepackage{xcolor}
-\usepackage{float}
-\usepackage{array,multirow}
-\usepackage{hyperref}
-\usepackage{setspace}
-\usepackage{stmaryrd}
-\usepackage{enumitem}
-\usepackage{rotating}
-\usepackage{adjustbox}
-\usepackage{array}
-\usepackage{booktabs}
-\usepackage{xcolor,colortbl}
-\usepackage{amsmath} 
-\usepackage{amsfonts} 
-\usepackage{amssymb}
-\usepackage{makecell}
-\usepackage[ruled,vlined,linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
-\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
-\SetCommentSty{mycommfont}
-\newcommand{\BREAK}{\STATE \algorithmicbreak}
-\modulolinenumbers[1]
-\setlength{\parindent}{0em}
-\journal{Applied Energy}
-\bibliographystyle{elsarticle-num}
+\input{_packages.tex}
 
 \begin{document}
 \begin{frontmatter}
-%\title{Benchmarking local network topology of sustainable heat supply: An open-source approach downscaling integrated assessment model results}
-\title{\textcolor{red}{Working title of the downscaling paper at IIASA}}
+
+\title{Downscaling European decarbonization scenarios of the heating sector: An open-source approach assessing centralized heat networks in Austria 2050}
 \author[1]{Sebastian Zwickl-Bernhard\corref{cor1}}
 \ead{zwickl@eeg.tuwien.ac.at}
 \author[2]{Daniel Huppmann}
@@ -44,16 +13,23 @@
 \cortext[cor1]{Corresponding author}
 \address[1]{Energy Economics Group (EEG), Technische Universität Wien, Gusshausstrasse 25-29/E370-3, 1040 Wien, Austria}
 \address[2]{Energy, Climate and Environment (ECE) Program,  International Institute for Applied Systems Analysis (IIASA), Laxenburg, Austria}
+\begin{abstract}
+%	1-2 sentences for each: Introduction, methods, results, conclusions.
+	%	Aiming towards sustainable heat supply for residential/commercial buildings implies the necessity of decarbonizing heat production portfolios. Most decarbonization studies examine net-zero scenarios on a highly aggregated level using integrated assessment models (IAMs) with global coverage. To translate these high-level transformation pathways to policy measures at a local resolution, it is necessary to downscale results from an aggregated level to a higher granularity. This work’s core objective is to examine the local network topology of sustainable heat supply and to identify the trade-offs for heat supply companies between low-carbon energy carriers, a significant heat demand reduction by building renovation, and a heat network expansion integrating renewable technologies such as geothermal and green gas high-efficiently. A two-stage analysis is proposed, including a downscaling algorithm for using IAM results for obtaining high spatial granularity using a novel downscaling technique accounting for the infrastructure requirements of centralized heat supply options and population density as criteria, and a benchmarking assessing network-based heat supply topologies. Using Austria as a case study, we downscale values projected by different decarbonization storylines from the H2020 openENTRANCE project. Results indicate that sustainable heat networks achieve only lower heat densities compared to existing networks, thus reducing infrastructure to supply ratio efficiency.
+	% system analysis-based policy recommendations 
+\end{abstract}
 
-\input{0_Abstract.tex}
+\begin{keyword}
+\end{keyword}
+\end{frontmatter}
+
 \newpage
 \input{1_2_Introduction.tex}
-%\newpage
-%\input{3_Methodology.tex}
-%\newpage
-%\input{4_Results.tex}
-%\newpage
-%\input{5_Conclusions.tex}
+\newpage
+\input{3_Methodology.tex}
+\newpage
+\input{4_Results.tex}
+\input{5_Conclusions.tex}
 
 
 
@@ -63,26 +39,51 @@ None.
 \section*{Declaration of Competing Interest}
 The authors report no declarations of interest.
 \section*{Acknowledgments}
-%This project has received funding from the European Union's Horizon 2020 Research and Innovation Programme under Grant Agreement No. 835896.
+This project has received funding from the European Union's Horizon 2020 Research and Innovation Programme under Grant Agreement No. 835896.
 
 \bibliography{mybibfile}
-%\appendix
-%\setcounter{table}{0}
-%\setcounter{figure}{0}
-
-% 
-% NUTS description into the appendix? I would say yes.
+\appendix
+\setcounter{table}{0}
+\setcounter{figure}{0}
 
 
-%\section{Validation of the downscaled results on the NUTS3 level}
-%modelle bringen, die ergebnisse zeigen. zumindest message ix ergebnisse. 
+\section{Data and further empirical settings}\label{appendixA}
+\begin{table}[h]
+	\centering
+	\scalebox{0.85}{
+		\renewcommand{\arraystretch}{1.35}
+		\begin{tabular}{lccc}
+			\toprule 
+			& Description & Data availability & Source\\\hline
+			GENeSYS-MOD v2.0 & Heat generation by source & \cite{explorer} & \cite{loffler2017designing}\\
+			Population density & in 2019 & \href{https://www.statistik.at/web_de/statistiken/index.html}{\textit{Statistik Austria}} & as availability\\
+			Population & in 2050 & \href{https://ec.europa.eu/eurostat/databrowser/view/tps00003/default/table?lang=en}{\textit{Eurostat}} & as availability\\
+			\bottomrule
+	\end{tabular}}
+	\caption{Empirical data settings}
+	\label{tab:a2}
+\end{table}
 
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=1\linewidth]{figures/_Appendix/Pop_den.eps}
-%	\caption{Projected population density in Austrian sub-regions (NUTS 3) in 2050. For the sake of clarity, the value of Vienna - AT130 ($\SI{5124}{persons \per km^2}$) is not explicitly presented.}
-%	\label{fig:app1}
-%\end{figure}
+\begin{table}[h]
+	\centering
+	\scalebox{1}{
+		\renewcommand{\arraystretch}{1.35}
+		\begin{tabular}{lcc}
+			\toprule 
+			Heat generation by source in 2017& in GWh & in \%\\\hline
+			Biomass & \SI{47.4}{} & \SI{29.7}{}\\
+			Direct electric & \SI{21.7}{} &\SI{13.6}{} \\
+			Natural gas & \SI{58.1}{} & \SI{36.4}{}\\
+			Heat pump (air \& ground) & \SI{2.8}{} & \SI{1.7}{}\\
+			Solarthermal & \SI{2.1}{} & \SI{1.3}{}\\
+			Other fossil fuels (oil, coal) & \SI{27.6}{}& \SI{17.3}{}\\
+			\midrule
+			Total & \SI{159.7}{GWh} & \SI{100}{\%}\\
+			\bottomrule
+	\end{tabular}}
+	\caption{Heat generation by source/technology in Austria 2017 \cite{austria2017statistik}}
+	\label{tab:a1}
+\end{table}
 
 
 \end{document}
