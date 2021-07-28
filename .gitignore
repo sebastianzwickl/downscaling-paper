@@ -5,6 +5,8 @@
 *.out
 *.spl
 *.gz
+*.loc
+*.soc
 
 # BibTeX
 *.bbl
