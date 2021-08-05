@@ -21,7 +21,7 @@ _boundary.boundary.plot(ax=fig_init, linewidth=0.05, color="black", linestyle="s
 fig_init.set_title("Initial condition\n(large area - difficult topology)", fontsize=10)
 fig_init.set_xticks([])
 fig_init.set_yticks([])
-fig_init.set_xlabel("$75$ sub-areas ($i=1$)", fontsize=8)
+fig_init.set_xlabel("$75$ communities ($i=1$)", fontsize=8)
 
 
 fig_bench = fig.add_subplot(gs[0, 1])
@@ -46,7 +46,7 @@ _boundary.boundary.plot(
 fig_bench.set_title("Final condition\n(smaller area - improved topology)", fontsize=10)
 fig_bench.set_xticks([])
 fig_bench.set_yticks([])
-fig_bench.set_xlabel("$47$ sub-areas ($i=29$)", fontsize=8)
+fig_bench.set_xlabel("$47$ communities ($i=29$)", fontsize=8)
 # fig_bench.set_facecolor("white")
 
 
