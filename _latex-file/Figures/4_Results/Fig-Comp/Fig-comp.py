@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 plt.style.use("seaborn")
 fig, ax = plt.subplots()
 
-tech = ["Total demand", "Storage", "Biomass", "Direct electric", "Natural gas", "Hydrogen", "Heat pump (air)", "Heat pump (ground)", "Oil"]
+tech = ["Total demand", "Heat Storage", "Biomass", "Direct electric", "Natural gas", "Hydrogen", "Heat pump (air)", "Heat pump (ground)", "Oil"]
 height1 = [-18.15,10.58,-8.87,-2.09,-46.00,2.17,15.7,21.47,-10.29]
 bars = ax.bar(x=[1,2,3,4,5,6,7,8,9], height=height1, linewidth=1.)
 ax.plot([0.5, 9.5], 2*[0], color="black", linewidth=2.5)
@@ -66,7 +66,7 @@ leg.get_frame().set_linewidth(1)
 
 
 ax.set_yticklabels(labels=[])
-ax.set_title("Relative differences of heat generation by source\nbetween 2020 and 2050", fontsize=20)
+ax.set_title("Relative differences of heat generation by source\nbetween 2020 and 2050 in TWh", fontsize=20)
 plt.tight_layout()
 fig.savefig("Ref-2050.png", dpi=500)
 fig.savefig("Ref-2050.eps", format="eps")
