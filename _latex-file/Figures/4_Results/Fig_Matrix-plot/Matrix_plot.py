@@ -326,11 +326,11 @@ _line = Line2D([0], [0], label = 'Network-based heat supply',color=_str, linesty
 
 _patches.extend([_line])
 
-fig_genesys_GD_NUTS3_LOW.set_xlabel("AT121 (Mostviertel-Eisenwurzen)", fontsize=5, labelpad=0, multialignment='center')
+fig_genesys_GD_NUTS3_LOW.set_xlabel("AT121 Mostviertel-Eisenwurzen\n"+r'($\approx75~\frac{persons}{km^2}$)', fontsize=5, labelpad=0, multialignment='center')
 fig_genesys_GD_NUTS3_HIGH = fig.add_subplot(gs[3, 2], frameon=False)
 fig_genesys_GD_NUTS3_HIGH.set_xticks([])
 fig_genesys_GD_NUTS3_HIGH.set_yticks([])
-fig_genesys_GD_NUTS3_HIGH.set_xlabel("AT127 (South Viennese environs)", fontsize=5, labelpad=0, multialignment='center')
+fig_genesys_GD_NUTS3_HIGH.set_xlabel("AT127 South Viennese environs\n"+r'(>$250~\frac{persons}{km^2}$)', fontsize=5, labelpad=0, multialignment='center')
 
 _plot = _data.filter(region="AT127", scenario="Gradual Development")
 
@@ -345,7 +345,7 @@ fig_genesys_GD_NUTS3_HIGH.text(x=1.3, y=-0.4, s=str(int(_norm))+" GWh", rotation
 fig_genesys_GD_LAU = fig.add_subplot(gs[3, 3:5], frameon=False)
 fig_genesys_GD_LAU.set_xticks([])
 fig_genesys_GD_LAU.set_yticks([])
-fig_genesys_GD_LAU.set_xlabel("AT127 (South Viennese environs) + communities", fontsize=5, labelpad=0, multialignment='center')
+fig_genesys_GD_LAU.set_xlabel("AT127 South Viennese environs (incl. 74 communities)", fontsize=5, labelpad=0, multialignment='center')
 
 
 
@@ -368,6 +368,6 @@ _new_lines.plot(ax=fig_genesys_GD_LAU, color=_str, linewidth=0.2)
 
 fig.suptitle("Heat generation on the country, sub-region, and community level")
 plt.tight_layout(h_pad=0)
-fig_genesys_DT_AT.legend(handles=_patches, loc='upper right', fontsize=7, framealpha=1, handlelength=0.7, handletextpad=0.3, ncol=9, bbox_to_anchor=(6.6, 1.575), borderpad=0.35, columnspacing=1)
+fig_genesys_DT_AT.legend(handles=_patches, loc='upper right', fontsize=7, framealpha=1, handlelength=0.7, handletextpad=0.3, ncol=9, bbox_to_anchor=(7.1, 1.575), borderpad=0.35, columnspacing=1)
 fig.savefig("Result.png", dpi=500)
 fig.savefig("Spatial_results.eps", format="eps")
