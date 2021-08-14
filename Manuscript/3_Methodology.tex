@@ -3,15 +3,16 @@ This section explains the methodology developed in this work. First, Section \re
 
 \subsection{Proportional spatial downscaling using population as a proxy}\label{pop}
 Proportional downscaling is a well-established technique and is commonly used. The fields of application are not limited to the modeling of energy systems. Moreover, it is applied in different fields of scientific and practical studies. The reason for this is the intuitive application and that it offers possibilities for tailor-made adaptions, in particular, related to the downscaling driver and proxy, respectively \cite{van2006downscaling}. In this context, van Vuuren et al. \cite{van2006downscaling} provide a comprehensive analysis of different proxies for the downscaling of global environmental change, including, among others, gross domestic product (GDP) and emissions as a proxy. Sherba et al. \cite{sherba2015downscaling} focus in their study on the downscaling of global land use projections and use the characteristic and distribution of land area as a proxy. Pretis and Roser \cite{pretis2017carbon} dissaggregate in their study growth rates from the global level using emission intensity as a proxy. However, in the context of downscaling aggregated values of energy systems, one often finds proportional downscaling using population as a proxy (see, e.g., Ahn et al. \cite{ahn2019downscaled}, van Vuuren et al. \cite{van2010downscaling}, and Alam et al. \cite{alam2018downscaling}). In this work, we also use this proxy and proportional downscaling and thus obtain a reference for comparing our novel developed methods. Equation \ref{eq:1} shows the basic expression of proportional downscaling, exemplarily, for the dissaggregation of the energy demand $d$ from the country to the local level, using population $p$ as a proxy. 
+
 \begin{align}\label{eq:1}
 d_{local}=\frac{p_{local}}{p_{country}} \cdot d_{country}
 \end{align}
+
 For further information, we refer the reader here to the study in \cite{van2010downscaling}, providing a systematic classification of downscaling techniques going far beyond the basic proportional downscaling technique discussed so far. The reader can find population-based downscaling in their classification in the category algorithmic and proportional downscaling. In addition, they showed that novel downscaling methods have emerged in recent years as the scientific community has increasingly recognized the necessity for spatially and temporally disaggregation.
 
 \subsection{Sequential downscaling (from the country to the sub-region level)}\label{alg1}
-The sequential downscaling algorithm (Algorithm 1) is developed to downscale aggregated values of the heating sector from the country to the sub-region level. Since at least the term sub-region can be understood differently, we use the definition of the European nomenclature of territorial units for statistics\footnote{\url{https://ec.europa.eu/eurostat/web/nuts/background}.} (NUTS). The country-level corresponds to the NUTS0, and the sub-region level corresponds to NUTS3. Table \ref{tab:nuts} provides an overview of the NUTS nomenclature for Austria. Considering our Austrian case study, we downscale with the sequential downscaling algorithm from one NUTS0 region (country level) to \SI{35}{} NUTS3 regions.\newline
+The sequential downscaling algorithm (Algorithm 1) is developed to downscale aggregated values of the heating sector from the country to the sub-region level. Since at least the term sub-region can be understood differently, we use the definition of the European nomenclature of territorial units for statistics\footnote{\url{https://ec.europa.eu/eurostat/web/nuts/background}.} (NUTS). The country-level corresponds to the NUTS0, and the sub-region level corresponds to NUTS3. Table \ref{tab:nuts} provides an overview of the NUTS nomenclature for Austria. Considering our Austrian case study, we downscale with the sequential downscaling algorithm from one NUTS0 region (country level) to \SI{35}{} NUTS3 regions.\vspace{0.3cm}
 
-\vspace{0.3cm}
 \definecolor{Gray}{gray}{0.95}
 \begin{sidewaystable}
 	\centering
@@ -32,6 +33,7 @@ The sequential downscaling algorithm (Algorithm 1) is developed to downscale agg
 \end{sidewaystable}
 
 The purpose of the sequential downscaling algorithm is to provide a downscaling technique that considers the prioritized preferences of some heat generation technologies/sources as co-firing in cogeneration plants. Thus, these technologies are downscaled only to regions that provide the potentials for centralized heat networks. Therefore, population density serves as a criterion, indicating the possibility of centralized heat networks. Table \ref{tab:require} provides a qualitative overview of the different heat generation technologies/sources and their heat network/infrastructure requirements. From this, the types of sub-regions used for downscaling the corresponding heat source are marked. Note that the different types are characterized by population density.
+
 \vspace{0.3cm}
 \definecolor{Gray}{gray}{0.85}
 \begin{table}[h]
@@ -54,8 +56,10 @@ The purpose of the sequential downscaling algorithm is to provide a downscaling 
 	\caption{Qualitative overview for heat generation technologies/sources and their requirments for heat network infrastructure. The prioritized preferences (gray cell color) of heat sources in sub-regions is marked by the gray color.}
 	\label{tab:require}
 \end{table}
-% hier einfügen von [5]
-For example, direct electric is characterized as a heat generation technology with no heat network requirements. Hence, it is downscaled to all types of sub-regions. In contrast, hydrogen is a heat generation source with high requirements and thus prioritized preferences (marked by the gray cell color) in densely populated areas using centralized heat networks. The right column refers to references that support these assumptions.\newline
+
+For example, direct electric is characterized as a heat generation technology with no heat network requirements. Hence, it is downscaled to all types of sub-regions. In contrast, hydrogen is a heat generation source with high requirements and thus prioritized preferences (marked by the gray cell color) in densely populated areas using centralized heat networks. The right column refers to references that support these assumptions.\vspace{0.3cm}
+
+Building on this prioritization of heat sources considered in the downscaling, the sequential downscaling algorithm is presented on page \pageref{Alg:1}. The inputs are: (i) heat generation by technology/source at the NUTS0 level, (ii) population as well as population density on the NUTS3 level, and (iii) empirical assumptions in terms of network infrastructure requirements per heat technology/source and potentials for heat network infrastructure (see Table \ref{tab:require}).
 
 \scalebox{1}{
 	\begin{algorithm}[H]
@@ -96,13 +100,14 @@ For example, direct electric is characterized as a heat generation technology wi
 			}
 		}\caption{Sequential downscaling algorithm (NUTS0 to NUTS3)}
 		\label{Alg:1}
-\end{algorithm}}
+\end{algorithm}}\vspace{1cm}
 \newpage
-Building on this prioritization of heat sources considered in the downscaling, the sequential downscaling algorithm is presented on page \pageref{Alg:1}. The inputs are: (i) heat generation by technology/source at the NUTS0 level, (ii) population as well as population density on the NUTS3 level, and (iii) empirical assumptions in terms of network infrastructure requirements per heat technology/source and potentials for heat network infrastructure (see Table \ref{tab:require}). The algorithm itself consists of three main parts: initialization, pre-calculations, and downscaling. First, the initialization of the algorithm sorts the heat generation technologies/sources in descending order in terms of network infrastructure requirements. Then the calculation starts with the first technology/source (highest requirements) (line 5). For this technology/source, all possible sub-regions are collected (line 8). Those sub-regions already fully supplied (no remaining heat demand) are filtered out (line 10). After further pre-calculation steps, the available amount of heat generation is downscaled to all valid sub-regions (lines 11 and 15) using population as a proxy (line 16). This procedure is repeated sequentially for each heat technology/source. The output of the sequential downscaling algorithm are heat generation by source and the amount of heat demand covered by centralized heat networks on the NUTS3 level (in the Austrian case 35 different sub-regions). 
+The algorithm itself consists of three main parts: initialization, pre-calculations, and downscaling. First, the initialization of the algorithm sorts the heat generation technologies/sources in descending order in terms of network infrastructure requirements. Then the calculation starts with the first technology/source (highest requirements) (line 5). For this technology/source, all possible sub-regions are collected (line 8). Those sub-regions already fully supplied (no remaining heat demand) are filtered out (line 10). After further pre-calculation steps, the available amount of heat generation is downscaled to all valid sub-regions (lines 11 and 15) using population as a proxy (line 16). This procedure is repeated sequentially for each heat technology/source. The output of the sequential downscaling algorithm are heat generation by source and the amount of heat demand covered by centralized heat networks on the NUTS3 level (in the Austrian case 35 different sub-regions). 
 
 \subsection{Iterative downscaling (from the sub-region to the small sub-region level)}\label{alg2}
 This section explains the methodology of the iterative downscaling algorithm. We propose this downscaling technique translating heat generation by technology/source from the sub-region (NUTS3) to the community level (LAU) (see Table \ref{tab:nuts}). This in-depth spatial resolution is imperative for realistic network infrastructure planning \cite{zvoleff2009impact}. The underlying concept of iterative downscaling bases on graph theory and assessing network topology using benchmark indicators. 
 
+\newpage
 \scalebox{1}{
 	\begin{algorithm}[H]
 		\setstretch{1}
@@ -151,7 +156,6 @@ This section explains the methodology of the iterative downscaling algorithm. We
 	\end{algorithm}
 }
 
-\newpage
 \subsubsection{Algorithm description}
 The iterative downscaling algorithm is presented on page \pageref{Alg:2}. The idea is to assess, benchmark, and improve the topology of centralized heat networks. This is achieved in our proposed approach by iterative downscaling. Essentially, the main steps of the algorithm can be summarized as follows:
 
@@ -168,12 +172,14 @@ The iterative downscaling algorithm is presented on page \pageref{Alg:2}. The id
 Recent studies support this approach focused on the topography of energy systems and networks (see for example in \cite{abuelnasr2018examining}). Bordin et al. \cite{bordin2016optimization} conduct an approach for the optimized strategic network design of centralized heat systems. In any case, the topography of supply areas plays an important role not only in centralized heat supply. Therefore, another look at approaches in general in the context of energy systems is worthwhile here. We refer here to Shekoofa and Karbasian \cite{shekoofa2013design} focusing in their study on design criteria for electrical power systems' topology selection. Many further contributions can be found in the literature. However, the underlying concept of these studies can be applied to the heating system and in particular to the topography of centralized heat networks. Allen et al. \cite{allen2020evaluation} evaluate the topology of centralized heating systems and conclude that the optimization of the topology is promising to facilitate the adoption of centralized heat networks. 
 
 \subsubsection{Heat network topology benchmarking using a graph theory based indicator}\label{bench}
-So far, we have only introduced the function $f(N^{s}, L^{s}, Q^{s})$ (see line 11 in the iterative algorithm on page \pageref{Alg:2}) as calculation procedure of the benchmarking indicator value. Below, we describe and discuss the approach of using a weighted cluster coefficient as function and benchmarking indicator.\newline
+So far, we have only introduced the function $f(N^{s}, L^{s}, Q^{s})$ (see line 11 in the iterative algorithm on page \pageref{Alg:2}) as calculation procedure of the benchmarking indicator value. Below, we describe and discuss the approach of using a weighted cluster coefficient as function and benchmarking indicator.\vspace{0.3cm}
 
 The proposed benchmarking indicator value is derived from graph-theory. Detailed information in the context of network analysis using indicators can be found in the fundamental work by Strogatz in \cite{strogatz2001exploring}. Morever, we refer the reader to the study in \cite{sanfeliu1983distance} where Sanfeliu and Fu elaborate in detail on network topologies and their transformation. In this work, we use a weighted cluster coefficient as benchmark indicator and determining the transformation path of the centralized heat network graph. Equation \ref{eq:2}) shows the calculation of the weighted cluster coefficient
+
 \begin{align}\label{eq:2}
 c_{n^{s}}=\frac{q_{n^{s}}}{max~q^{s}}\cdot \frac{\alpha_{n^{s}}}{\beta_{n^{s}}}
 \end{align}
+
 where $q$ is the amount of centralized heat supply, $\alpha$ the number of triangles that can be formed with direct neighboring nodes, and $\beta$ the number of lines connecting to the graph for node $n$ at stage $s$. In the context of the fundamental concept of $alpha$, we refer again to the literature. In particular, the study in \cite{huang2010link} comprehensivley deals with cluster coefficients and provides related generalized concepts. In addition, relevant aspects of the cluster(ing) coefficient is shown in \cite{cui2014detecting}. In the works cited and also in the one presented here, the aim is to achieve a high value of the cluster coefficient for each node considered (i.e., $\frac{\alpha}{\beta} \approx 1$). However, we extend the basic concept of the cluster coefficient from literature and propose a weighting with the relative centrally supplied heat quantity. From an energy economics point of view, at least two important aspects are so considered in the benchmarking process. (i) a high connection rate to the centralized heat network and (ii) a connection of those areas to the network which has a high heat demand and heat density, respectively. Both aspects are investigated in the literature. For example, Nilsson et al. \cite{nilsson2008sparse} focus in their study on the importance of the connection rate of centralized heat networks. Besides, Dochev et al. \cite{dochev2018analysing} investigate in their study the impact of linearly decreasing heat densities and the influence on the profitability of the centralized heat networks.
 
 \subsection{Development of an open-source package building upon pyam}\label{open}

@@ -145,7 +145,7 @@ ax.plot(3.625, 2.0, marker="d", markersize=4, color="black")
 
 
 
-leg = ax.legend(handles=_patches, loc='upper left', fontsize=6, framealpha=1, handlelength=1, handletextpad=1, borderpad=1, columnspacing=1, edgecolor=c_edge, frameon=True, bbox_to_anchor=(0.01, 0.925))
+leg = ax.legend(handles=_patches, loc='upper left', fontsize=6.5, framealpha=1, handlelength=1, handletextpad=1, borderpad=1, columnspacing=1, edgecolor=c_edge, frameon=True, bbox_to_anchor=(0.01, 0.925))
 leg.get_frame().set_linewidth(0.25)
 
 ax.set_title("Heat density of the centralized heat network in Graz (AT221) 2050\nobtained by different downscaling techniques", fontsize=12)
@@ -163,7 +163,7 @@ _line = Line2D([0], [0], label = "Techno-Friendly",color="black", marker="*", ma
 _patches.extend([_line])
 _line = Line2D([0], [0], label = "Gradual Development",color="black", marker="v", markersize=3, linewidth=0)
 _patches.extend([_line])
-leg2 = ax2.legend(handles=_patches, loc="center left", fontsize=6, framealpha=1, handlelength=0.5, handletextpad=0.5, frameon=True, fancybox=True, shadow=False, edgecolor="black", bbox_to_anchor=(0.01, 0.5))
+leg2 = ax2.legend(handles=_patches, loc="center left", fontsize=6.5, framealpha=1, handlelength=0.5, handletextpad=0.5, frameon=True, fancybox=True, shadow=False, edgecolor="black", bbox_to_anchor=(0.01, 0.475))
 leg2.get_frame().set_linewidth(0.25)
 
 ax.annotate(
@@ -179,7 +179,7 @@ ax.annotate(
                     connectionstyle="arc3,rad=.3",
                     color="#000000"))
 
-ax.text(x=3.2, y=0.5, s='Largest gap in the\nSocietal Commitment scenario', rotation=0, fontsize=5, color='#000000',
+ax.text(x=3.1, y=0.5, s='Largest gap in the\nSocietal Commitment scenario', rotation=0, fontsize=7, color='#000000',
           ha='center', va='center')
 
 plt.tight_layout()
