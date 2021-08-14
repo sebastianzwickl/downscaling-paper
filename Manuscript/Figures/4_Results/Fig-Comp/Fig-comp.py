@@ -164,6 +164,11 @@ leg2.get_frame().set_linewidth(1)
 # "*" = "Techno-Friendly"
 # "d" = Direct-Transition
 
+# "v" = "Gradual Development"
+# "H" = Societal Commitment
+# "*" = "Techno-Friendly"
+# "d" = Direct-Transition
+
 ax.set_yticklabels(labels=[])
 ax.set_title("Absolute differences of heat generation by source\n between 2020 and 2050 in TWh", fontsize=20)
 plt.tight_layout()
