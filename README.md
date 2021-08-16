@@ -1,19 +1,12 @@
-**Benchmarking local network topology of sustainable heat supply: An open-source approach
-downscaling integrated assessment model results**
+Title and abstract (under construction)
 
-Aiming towards sustainable heat supply for residential/commercial buildings implies the necessity of
-decarbonizing heat production portfolios. Most decarbonization studies examine net-zero scenarios
-on a highly aggregated level using integrated assessment models (IAMs) with global coverage. To
-translate these high-level transformation pathways to policy measures at a local resolution, it is
-necessary to downscale results from an aggregated level to a higher granularity. This work’s core
-objective is to examine the local network topology of sustainable heat supply and to identify the
-trade-offs for heat supply companies between low-carbon energy carriers, a significant heat demand
-reduction by building renovation, and a heat network expansion integrating renewable technologies
-such as geothermal and green gas high-efficiently. A two-stage analysis is proposed, including a
-downscaling algorithm for using IAM results for obtaining high spatial granularity using a novel
-downscaling technique accounting for the infrastructure requirements of centralized heat supply
-options and population density as criteria, and a benchmarking assessing network-based heat supply
-topologies. Using Austria as a case study, we downscale values projected by different
-decarbonization storylines from the H2020 openENTRANCE project. Results indicate that sustainable
-heat networks achieve only lower heat densities compared to existing networks, thus reducing
-infrastructure to supply ratio efficiency.
+**Downscaling European decarbonization scenarios of the heating sector to the Austrian community level: Assessing the heat density gap of centralized heat networks between 2050 and today**
+
+The core objective of this work is to downscale European deep decarbonization scenarios of the heating sector to the Austrian community level in 2050 to obtain
+an estimation of future demand for different heating technologies and infrastructure on smaller geographical scale. We use tailor-made downscaling techniques
+accounting for infrastructure needs of heat sources, the network topology of centralized heat networks, and population density projections. The results show
+that centralized heat networks play an important role in the highly efficient heat supply of densely populated areas in 2050. However, the projected heat
+density of supply areas is significantly lower than today despite high connection rates (in average greater than 85%). We identify a heat density gap of at
+least 7.42GWh/km2 considering 10GWh/km2 as today’s minimum required value. We conclude that future yes/no-planning decisions of centralized heat networks should
+take enhanced account of the highly efficient use of sustainable and local heat sources in addition to the achievable heat density. Policymakers should en-
+sure that building renovation and supply-side efficiency measures in the heating sector do not cause centralized heating networks to lack competitiveness.
