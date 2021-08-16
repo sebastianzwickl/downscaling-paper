@@ -10,3 +10,5 @@ density of supply areas is significantly lower than today despite high connectio
 least 7.42GWh/km2 considering 10GWh/km2 as today’s minimum required value. We conclude that future yes/no-planning decisions of centralized heat networks should
 take enhanced account of the highly efficient use of sustainable and local heat sources in addition to the achievable heat density. Policymakers should en-
 sure that building renovation and supply-side efficiency measures in the heating sector do not cause centralized heating networks to lack competitiveness.
+
+<img src="./Manuscript/Figures/4_Results/Fig_Boxplot/ext_boxplot.png" width="1000" heigth="400" align="center">
