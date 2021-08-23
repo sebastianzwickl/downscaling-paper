@@ -368,6 +368,6 @@ _new_lines.plot(ax=fig_genesys_GD_LAU, color=_str, linewidth=0.2)
 
 fig.suptitle("Heat generation on the country, sub-region, and community level")
 plt.tight_layout(h_pad=0)
-fig_genesys_DT_AT.legend(handles=_patches, loc='upper right', fontsize=7, framealpha=1, handlelength=0.7, handletextpad=0.3, ncol=9, bbox_to_anchor=(7.1, 1.575), borderpad=0.35, columnspacing=1)
+fig_genesys_DT_AT.legend(handles=_patches, loc='upper right', fontsize=7, framealpha=1, handlelength=0.7, handletextpad=0.3, ncol=9, bbox_to_anchor=(7.065, 1.6), borderpad=0.35, columnspacing=1)
 fig.savefig("Result.png", dpi=500)
 fig.savefig("Spatial_results.eps", format="eps")
