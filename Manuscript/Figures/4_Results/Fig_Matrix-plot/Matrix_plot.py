@@ -22,12 +22,6 @@ _color = {
 
 _str = "#04009A"
 
-Genesysmod = py.IamDataFrame("GeneSys-Mod_Residential_heat_production_IAMC_format.xlsx")
-
-plt.style.use("seaborn-paper")
-fig = plt.figure(constrained_layout=False)
-gs = fig.add_gridspec(4, 5)
-
 
 def _plot_function(data=None, ax=None):
     Values = data.data.values
@@ -52,7 +46,7 @@ def plot_first_column(data=None, ax=None):
     print(number)
     number=[number[0], number[4], number[6], number[1], number[2], number[3], number[5], number[7]]
     _colors = ["#A0C334","#D2E603","#76EAD7","#FB7813","#4D4646","#AD9D9D", "#A7BBC7", "#DA0037"]
-    ill = ax.pie(x=number, colors=_colors, startangle=250, radius=5, labels=None, frame=True, explode=[0.2, 0.2, 0.2, 0,0,0,0,0])
+    ill = ax.pie(x=number, colors=_colors, startangle=250, radius=0.5, labels=None, frame=True, explode=[0.05, 0.05, 0.05, 0,0,0,0,0], center=(0.5, 0.5))
     _iter = 0
     _true = [True, True, True, False, False, False, False, False]
 
@@ -63,6 +57,17 @@ def plot_first_column(data=None, ax=None):
             _p.set_ls("solid")
         _iter+=1
     return
+
+
+Genesysmod = py.IamDataFrame("GeneSys-Mod_Residential_heat_production_IAMC_format.xlsx")
+
+# plt.style.use("seaborn-paper")
+fig = plt.figure(constrained_layout=False)
+gs = fig.add_gridspec(4, 5)
+
+
+
+
 
 
 
@@ -80,7 +85,10 @@ Values = _plot.data.values
 number = Values[:,6]
 number=[number[0], number[4], number[6], number[1], number[2], number[3], number[5], number[7]]
 _colors = ["#A0C334","#D2E603","#76EAD7","#FB7813","#4D4646","#AD9D9D", "#A7BBC7", "#DA0037"]
-ill = fig_genesys_DT_AT.pie(x=number, colors=_colors, startangle=250, radius=5, labels=None, frame=True, explode=[0.2, 0.2, 0.2, 0,0,0,0,0])
+
+
+
+ill = fig_genesys_DT_AT.pie(x=number, colors=_colors, startangle=250, radius=0.5, labels=None, frame=True, explode=[0.05, 0.05, 0.05, 0,0,0,0,0], center=(0.5, 0.5))
 _iter = 0
 _true = [True, True, True, False, False, False, False, False]
 
@@ -96,7 +104,13 @@ fig_genesys_DT_AT.set_xticks([])
 fig_genesys_DT_AT.set_yticks([])
 fig_genesys_DT_AT.set_ylabel("Directed\nTransition", fontsize=7, labelpad=6, multialignment='center')
 fig_genesys_DT_AT.set_title("Austria (country)", fontsize=10, pad=8)
-fig_genesys_DT_AT.text(x=6.5, y=-2.5, s=str(np.round(_norm,1))+" TWh", rotation="vertical", fontsize=6)
+fig_genesys_DT_AT.text(x=1.15, y=0.5, s=str(np.round(_norm,1))+" TWh", rotation="vertical", fontsize=6, ha="left", va="center")
+
+
+
+
+
+
 
 
 fig_genesys_DT_NUTS3_LOW = fig.add_subplot(gs[0, 1])
@@ -140,7 +154,7 @@ _cen = gpd.GeoDataFrame(_cen)
 _cen.rename(columns={0: "geometry"}, inplace=True)
 _min = min(_cen["value"])
 _max = max(_cen["value"]) 
-_cen.plot(ax=fig_genesys_DT_LAU, marker="o", color=_str, markersize=0.5*_cen["value"], legend=False)
+_cen.plot(ax=fig_genesys_DT_LAU, marker="o", color=_str, markersize=0.1*_cen["value"], legend=False)
 _new_lines = gpd.read_file("Directed Transition/lines.shp")
 _new_lines.plot(ax=fig_genesys_DT_LAU, color=_str, linewidth=0.2)
 
@@ -158,7 +172,12 @@ plot_first_column(_plot, fig_genesys_SC_AT)
 fig_genesys_SC_AT.set_xticks([])
 fig_genesys_SC_AT.set_yticks([])
 fig_genesys_SC_AT.set_ylabel("Societal\nCommitment", fontsize=7, labelpad=6, multialignment='center')
-fig_genesys_SC_AT.text(x=6.5, y=-2.5, s=str(np.round(_size,1))+" TWh", rotation="vertical", fontsize=6)
+
+
+_norm = sum(_plot.data["value"])*0.27778
+
+
+fig_genesys_SC_AT.text(x=1.15, y=0.5, s=str(np.round(_norm,1))+" TWh", rotation="vertical", fontsize=6, ha="left", va="center")
 fig_genesys_SC_NUTS3_LOW = fig.add_subplot(gs[1, 1])
 fig_genesys_SC_NUTS3_LOW.set_xticks([])
 fig_genesys_SC_NUTS3_LOW.set_yticks([])
@@ -198,7 +217,7 @@ _cen = gpd.GeoDataFrame(_cen)
 _cen.rename(columns={0: "geometry"}, inplace=True)
 _min = min(_cen["value"])
 _max = max(_cen["value"]) 
-_cen.plot(ax=fig_genesys_SC_LAU, marker="o", color=_str, markersize=0.5*_cen["value"], legend=False)
+_cen.plot(ax=fig_genesys_SC_LAU, marker="o", color=_str, markersize=0.1*_cen["value"], legend=False)
 _new_lines = gpd.read_file("Societal Commitment/lines.shp")
 _new_lines.plot(ax=fig_genesys_SC_LAU, color=_str, linewidth=0.2)
 
@@ -214,8 +233,9 @@ plot_first_column(_plot, fig_genesys_TF_AT)
 
 fig_genesys_TF_AT.set_xticks([])
 fig_genesys_TF_AT.set_yticks([])
-fig_genesys_TF_AT.set_ylabel("Techno-Friendly", fontsize=7, labelpad=6)
-fig_genesys_TF_AT.text(x=6.5, y=-2.5, s=str(np.round(_size,1))+" TWh", rotation="vertical", fontsize=6)
+fig_genesys_TF_AT.set_ylabel("Techno-\nFriendly", fontsize=7, labelpad=6)
+_norm = sum(_plot.data["value"])*0.27778
+fig_genesys_TF_AT.text(x=1.15, y=0.5, s=str(np.round(_norm,1))+" TWh", rotation="vertical", fontsize=6, ha="left", va="center")
 
 
 
@@ -256,7 +276,7 @@ _cen = gpd.GeoDataFrame(_cen)
 _cen.rename(columns={0: "geometry"}, inplace=True)
 _min = min(_cen["value"])
 _max = max(_cen["value"]) 
-_cen.plot(ax=fig_genesys_TF_LAU, marker="o", color=_str, markersize=0.5*_cen["value"], legend=False)
+_cen.plot(ax=fig_genesys_TF_LAU, marker="o", color=_str, markersize=0.1*_cen["value"], legend=False)
 _new_lines = gpd.read_file("Techno-Friendly/lines.shp")
 _new_lines.plot(ax=fig_genesys_TF_LAU, color=_str, linewidth=0.2)
 
@@ -275,7 +295,7 @@ plot_first_column(_plot, fig_genesys_GD_AT)
 fig_genesys_GD_AT.set_xticks([])
 fig_genesys_GD_AT.set_yticks([])
 fig_genesys_GD_AT.set_ylabel("Gradual\nDevelopment", fontsize=7, labelpad=6, multialignment='center')
-fig_genesys_GD_AT.text(x=6.5, y=-2.5, s=str(np.round(_size,1))+" TWh", rotation="vertical", fontsize=6)
+fig_genesys_GD_AT.text(x=1.15, y=0.5, s=str(np.round(_size,1))+" TWh", rotation="vertical", fontsize=6, ha="left", va="center")
 
 
 
@@ -358,7 +378,7 @@ _cen = gpd.GeoDataFrame(_cen)
 _cen.rename(columns={0: "geometry"}, inplace=True)
 _min = min(_cen["value"])
 _max = max(_cen["value"]) 
-_cen.plot(ax=fig_genesys_GD_LAU, marker="o", color=_str, markersize=0.5*_cen["value"], legend=False)
+_cen.plot(ax=fig_genesys_GD_LAU, marker="o", color=_str, markersize=0.1*_cen["value"], legend=False)
 _new_lines = gpd.read_file("Gradual Development/lines.shp")
 _new_lines.plot(ax=fig_genesys_GD_LAU, color=_str, linewidth=0.2)
 
@@ -368,6 +388,7 @@ _new_lines.plot(ax=fig_genesys_GD_LAU, color=_str, linewidth=0.2)
 
 fig.suptitle("Heat generation on the country, sub-region, and community level")
 plt.tight_layout(h_pad=0)
-fig_genesys_DT_AT.legend(handles=_patches, loc='upper right', fontsize=7, framealpha=1, handlelength=0.7, handletextpad=0.3, ncol=9, bbox_to_anchor=(7.065, 1.6), borderpad=0.35, columnspacing=1)
+fig_genesys_DT_AT.legend(handles=_patches, loc='upper center', fontsize=6, framealpha=1, handlelength=0.7, handletextpad=0.3, ncol=9, bbox_to_anchor=(3.7, 1.675), borderpad=0.35, columnspacing=1)
+
 fig.savefig("Result.png", dpi=500)
 fig.savefig("Spatial_results.eps", format="eps")

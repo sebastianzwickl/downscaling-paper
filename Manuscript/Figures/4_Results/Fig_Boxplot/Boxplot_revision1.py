@@ -46,7 +46,7 @@ _boundary.boundary.plot(
 fig_bench.set_title("Final condition\n(smaller area - improved topology)", fontsize=10)
 fig_bench.set_xticks([])
 fig_bench.set_yticks([])
-fig_bench.set_xlabel("$47$ communities ($i=29$)", fontsize=8)
+fig_bench.set_xlabel("$25$ communities ($i=51$)", fontsize=8)
 # fig_bench.set_facecolor("white")
 
 
@@ -58,16 +58,16 @@ fig_box.annotate(
     fontsize=10,
     color="black",
     multialignment="center",
-    xy=(1.3, 2),
+    xy=(51, 0.325),
     xycoords="data",
-    xytext=(7, 4),
+    xytext=(39, 0.48),
     textcoords="data",
     arrowprops=dict(
         headlength=8,
         headwidth=4,
         width=0.75,
-        connectionstyle="arc3,rad=.2",
-        color="#000000",
+        connectionstyle="arc3,rad=-.2",
+        color="#0F52BA",
     ),
 )
 
@@ -75,13 +75,13 @@ fig_box.annotate(
 #           ha='center', va='center')
 
 fig_box.text(
-    x=7.8,
-    y=5.2,
-    s="Initial condition\n($\pi_{mean,75}=0.33$)",
+    x=10,
+    y=0.48,
+    s="Initial condition",
     rotation=0,
-    fontsize=9,
+    fontsize=5,
     color="black",
-    ha="center",
+    ha="left",
     va="center",
     bbox=dict(
         facecolor="#B6C9F0",
@@ -98,18 +98,19 @@ fig_box.text(
 fig_box.annotate(
     "",
     fontsize=10,
-    color="black",
+    color="#B6C9F0",
     multialignment="center",
-    xy=(28.7, 3),
+    xy=(1, 0.325),
     xycoords="data",
-    xytext=(20, 5.6),
+    xytext=(10, 0.48),
     textcoords="data",
     arrowprops=dict(
         headlength=8,
         headwidth=4,
-        width=0.75,
-        connectionstyle="arc3,rad=-.25",
-        color="#000000",
+        width=1.25,
+        facecolor="#B6C9F0",
+        connectionstyle="arc3,rad=.2",
+        edgecolor="black",
     ),
 )
 
@@ -117,11 +118,11 @@ fig_box.annotate(
 #           ha='center', va='center')
 
 fig_box.text(
-    x=17.5,
-    y=5.2,
-    s="Final condition\n($\pi_{mean,47}=1.94$)",
+    x=39,
+    y=0.48,
+    s="Final condition",
     rotation=0,
-    fontsize=9,
+    fontsize=5,
     color="#0F52BA",
     ha="center",
     va="center",
@@ -162,55 +163,77 @@ for flier in _boxplot["fliers"]:
 
 # fig_box.set_xlabel("Number of iteration ($i$)")
 fig_box.set_ylabel("Benchmark\nindicator value ($\pi$)", fontsize=8)
-fig_box.xaxis.set_tick_params(labelsize=8, rotation=0)
 
+fig_box.xaxis.set_tick_params(labelsize=6, rotation=0)
+fig_box.set_xticks([1,5,10,15,20,25,30,35,40,45,50])
+fig_box.set_xticklabels(labels=["1","5","10","15","20","25","30","35","40","45","50"])
 
 fig_area = fig.add_subplot(gs[2, 0:2])
 fig_area.xaxis.set_ticks_position("top")
-x = range(1, 30, 1)
-fig_area.set_xticks(x)
+x = range(1, 52, 1)
 
 
 y = [
-    386.1526,
-    385.0396,
-    384.1386,
-    383.5106,
-    382.3626,
-    381.5936,
-    380.1686,
-    378.6236,
-    377.0086,
-    375.3786,
-    374.2006,
-    372.5556,
-    370.8006,
-    369.2926,
-    367.7356,
-    366.7976,
-    365.9026,
-    363.8326,
-    361.7806,
-    357.6386,
-    356.1896,
-    353.2076,
-    351.9586,
-    343.9516,
-    341.7446,
-    339.8976,
-    338.4146,
-    336.4926,
-    334.7466,
+386.152,
+385.039,
+384.138,
+383.510,
+382.362,
+381.593,
+380.168,
+378.623,
+377.008,
+374.200,
+372.555,
+370.800,
+369.292,
+367.735,
+366.797,
+365.902,
+363.832,
+361.780,
+357.638,
+356.189,
+353.207,
+352.339,
+344.332,
+342.125,
+340.278,
+338.795,
+336.873,
+335.127,
+315.703,
+313.502,
+310.576,
+309.340,
+306.443,
+300.577,
+298.879,
+297.827,
+294.519,
+292.519,
+286.909,
+285.187,
+283.412,
+280.526,
+277.566,
+276.311,
+269.493,
+267.707,
+264.576,
+261.690,
+259.323,
+255.357,
+240.344,
 ]
-
-fig_area.plot(x, y, marker="d", linestyle="dashed", color="gray")
-fig_area.set_xlim([0.5, 29.5])
+fig_area.plot(x, y, marker="d", linestyle="dashed", color="gray", markersize=2)
+fig_area.set_xlim([0.5, 51.5])
 fig_area.set_xticklabels(labels=[])
-fig_area.set_yticks([325, 350, 375])
-fig_area.set_ylim([300, 400])
+fig_area.set_yticks([200, 300, 400])
+fig_area.set_ylim([200, 400])
 fig_area.set_ylabel("Connected\npopulation", fontsize=8)
 fig_area.set_xlabel("Number of iteration ($i$)", fontsize=10)
-fig_area.set_yticklabels(labels=["325k", "350k", "375k"], fontsize=6)
+fig_area.set_yticklabels(labels=["200k", "300k", "400k"], fontsize=6)
 
 fig_area.annotate(
     "$386$k connected population",
@@ -219,7 +242,7 @@ fig_area.annotate(
     multialignment="center",
     xy=(1, 375),
     xycoords="data",
-    xytext=(3, 330),
+    xytext=(3, 250),
     textcoords="data",
     arrowprops=dict(
         headlength=8,
@@ -231,13 +254,13 @@ fig_area.annotate(
 )
 
 fig_area.annotate(
-    "$-13.3\%$",
+    "240k $(-38\%)$",
     fontsize=10,
     color="black",
     multialignment="center",
-    xy=(29, 345),
+    xy=(51, 250),
     xycoords="data",
-    xytext=(24, 370),
+    xytext=(37.5, 330),
     textcoords="data",
     arrowprops=dict(
         headlength=8,
