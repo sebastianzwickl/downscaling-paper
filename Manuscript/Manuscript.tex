@@ -4,7 +4,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{Disclosing the heat density of centralized heat networks in Austria 2050 under the 1.5°C climate target}
+\title{Determination of the heat density of centralized heat networks in Austria 2050 under the 1.5°C climate target}
 \author[1,2]{Sebastian Zwickl-Bernhard\corref{cor1}}
 \ead{zwickl@eeg.tuwien.ac.at}
 \author[2]{Daniel Huppmann}
@@ -15,11 +15,11 @@
 \address[2]{Energy, Climate and Environment (ECE) Program,  International Institute for Applied Systems Analysis (IIASA), Laxenburg, Austria}
 
 \begin{abstract}
-	Achieving the \SI{1.5}{\degreeCelsius} climate target requires a sustainable transformation of the heat supply. We downscale different European decarbonization scenarios of the heating sector to the Austrian grid level, using tailor-made downscaling techniques accounting for infrastructure requirements of renewable heat sources and topology of centralized heat networks. We demonstrate that district heating networks are crucial in the highly efficient decarbonized heat supply in Austria 2050 and identify six different district heating networks, supplying heat demand between \SI{0.7}{} and \SI{6.6}{TWh}. Nevertheless, five of these networks do not reach the heat density required for economic and technical efficiency from today's techno-economic perspective (heat density of \SI{2.58}{\frac{GWh}{km^2}} and less). We conclude that the decarbonization leads to centralized heat networks with lower heat densities. 
+	Achieving the \SI{1.5}{\degreeCelsius} climate target requires, among others, a sustainable transformation of the heat supply. We downscale different European decarbonization scenarios of the heating sector to the Austrian grid level, using tailor-made downscaling techniques accounting for infrastructure requirements of renewable heat sources and topology of centralized heat networks. We demonstrate that district heating networks are crucial in the highly efficient decarbonized heat supply in Austria in 2050 and identify eight different representative district heating networks, supplying heat demand between \SI{0.6}{} and \SI{12}{TWh}. Nevertheless, seven of these networks do not reach the heat density required for economic and technical efficiency from today's techno-economic perspective. We conclude that the decarbonization leads to centralized heat networks with lower heat densities. 
 \end{abstract}
 
 \begin{keyword}
-	Centralized heat networks, heat density, district heating, decarbonization, 1.5°C climate target, downscaling
+	Centralized heat networks, heat density, district heating, 1.5°C climate target, downscaling, 2050
 \end{keyword}
 \end{frontmatter}
 
@@ -29,7 +29,6 @@
 \input{3_Methodology.tex}
 \newpage
 \input{4_Results.tex}
-\newpage
 \input{5_Conclusions.tex}
 
 
@@ -65,6 +64,14 @@ This project has received funding from the European Union's Horizon 2020 Researc
 	\label{tab:a2}
 \end{table}
 
+\section{Further methodology illustrations}\label{appendixB}
+Figure \ref{fig:app:method} shows an illustrative example for the iterative downscaling Algorithm (Algorithm 2). It shows two different conditions of a simple graph. In the first condition ($i$), the network topology consist of four nodes (A-D) and four lines. It is shown in the subfigure in the top left. The table below (bottom left) shows the amount of centralized and on-site heat supply as well as the value of the indicator value for each node. Note that the numbers are only for illustration. Node A has the lowest indicator value (see marker [1] in the left table) and, therefore, its amount of centralized heat supply (marker [2]) is reallocated to the remaining nodes of the network (marker [3]). This process increases the on-site heat supply accordingly at node A since this node is not connected to the network in conditon $i+1$ and increases the amount of centralized heat supply at node B-D (see the larger nodes in the top right subfigure). The heat demand of node A in condition $i+1$ is only covered by on-site heat supply. Node A is removed from the graph and thus dissconnected from the network.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{figures/_appendix/Method_appendix.pdf}
+	\caption{Illustrative example of Algorithm 2 showing a simple graph with four nodes in two different conditions. The node with the lowest indicator value in condition $i$ (node A) is removed from the graph (markers [1]-[3] in the table at the bottom left). The amount of centralized heat supply from node A is reallocated to the reamaining nodes B-D (see table at the bottom right).}
+	\label{fig:app:method}
+\end{figure}
 
 \end{document}
