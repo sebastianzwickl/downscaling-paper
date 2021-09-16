@@ -386,7 +386,7 @@ _new_lines.plot(ax=fig_genesys_GD_LAU, color=_str, linewidth=0.2)
 
 
 
-fig.suptitle("Heat generation on the country, sub-region, and community level")
+fig.suptitle("Heat generation at the country, sub-region, and community levels")
 plt.tight_layout(h_pad=0)
 fig_genesys_DT_AT.legend(handles=_patches, loc='upper center', fontsize=6, framealpha=1, handlelength=0.7, handletextpad=0.3, ncol=9, bbox_to_anchor=(3.7, 1.675), borderpad=0.35, columnspacing=1)
 
