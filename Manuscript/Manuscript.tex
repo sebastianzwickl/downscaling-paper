@@ -24,6 +24,43 @@
 \end{frontmatter}
 
 \newpage
+\section*{Nomenclature}
+\begin{center}
+	\renewcommand{\arraystretch}{1.1}
+	\centering
+	\small
+	\begin{tabular}{lm{8cm}r}
+		Type & Description & Unit\\
+		\hline
+		Set and index & & \\
+		\hline
+		{$t \in \mathcal{T}=\{1,\ldots,T\}$} & Set of heat generation technologies/sources, index by $t$\\
+		{$r \in \mathcal{R}=\{1,\ldots,R\}$} & Set of sub-regions, index by $r$\\
+		{$s \in \mathcal{S}=\{0,1,*\}$} & Stage of iterations, index by $s$\\
+		\hline
+		Variables\\
+		\hline
+		{$q_{t}$} & Heat generation per $t$ & \SI{}{TWh}\\
+		{$\rho_{r}$} & Population density per $r$ & \SI{}{1 \per \per km^2}\\
+		{$p_{r}$} & Total population per $r$ & \SI{}{1}\\
+		{$\sigma_{t}$} & Minimal network infrastructure requirements per $t$& \SI{}{1 \per \per km^2}\\
+		{$\pi_{r}$} & Available potential of heat network infrastructure per $r$& \SI{}{1 \per \per km^2}\\
+		{$\hat{q}_{t,r}$} & Heat generation per $t$ and $r$& \SI{}{TWh}\\
+		{$q^{heat}_{r}$} & Heat demand per $r$& \SI{}{TWh}\\
+		{$\tilde{q}_{t}$} & Available heat generation per $t$& \SI{}{TWh}\\
+		{$G^{s}$} & Centralized heat network graph at $s$ & \\
+		{$n^{s}$} & Node of centralized heat network graph at $s$ & \\
+		{$l^{s}_{k,j}$} & Line connecting nodes $k$ and $j$ at $s$ & \\
+		{$q^{s}_{n^{s}}$} & Nodal centralized heat generation at $s$ & \SI{}{TWh}\\
+		{$\tilde{q}^{s}_{n^{s}}$} & Nodal on-site heat generation at $s$ & \SI{}{TWh}\\
+		{$\pi^{s}_{n^{s}}$} & Nodal benchmark indicator value at $s$ & \SI{}{1}\\
+		{$\alpha_{n^{s}}$} & Number of triangles with direct neighboring nodes & \SI{}{1}\\
+		{$\beta_{n^{s}}$} & Number of connection lines to the graph & \SI{}{1}\\		
+		\hline
+	\end{tabular}
+\end{center}
+\newpage
+
 \input{1_2_Introduction.tex}
 \newpage
 \input{3_Methodology.tex}
