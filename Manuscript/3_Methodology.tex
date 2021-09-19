@@ -39,7 +39,7 @@ The purpose of the sequential downscaling algorithm is to provide a downscaling 
 
 Besides, we claim that high shares of air-source heat pumps (or geothermal sources) in the heat supply can only be realized if they are used as a co-firing heat source in district heating networks. We therefore consider two main aspects, namely that geothermal sources will contribute significantly to decarbonizing the feed-in energy mix of existing district heating grids in the future (see, e.g., \cite{weinand2019developing}), and that the provision of high shares of geothermal-based heat supply requires the distribution through district heating infrastructure \cite{dalla2020scenarios}. Besides, it is highly uncertain whether small-scale geothermal units at the end-user's level will be economically viable in the future, because of the high investment costs expected.\vspace{0.3cm}
 
-To incorporate the abovementioned relevant technology-specific aspects, heat technologies/sources are downscaled according to their necessity of distribution infrastructure. Therefore, population density serves as a criterion, indicating the possibility of centralized heat networks. Table \ref{tab:require} provides a qualitative overview of the different heat generation technologies/sources and their heat network/infrastructure requirements. 
+To incorporate the abovementioned relevant technology-specific aspects, heat technologies/sources are downscaled according to their necessity of distribution infrastructure. Therefore, population density serves as a criterion, indicating the possibility of centralized heat networks. Table \ref{tab:require} provides a qualitative overview of the different heat generation technologies/sources and their heat network/infrastructure requirements.\vspace{0.3cm}
 
 \definecolor{Gray}{gray}{0.85}
 \begin{table}[h]
@@ -105,14 +105,13 @@ The sub-regions used to downscale the corresponding heat sources are marked. Not
 			}
 		}\caption{Sequential downscaling algorithm (NUTS0 to NUTS3)}
 		\label{Alg:1}
-\end{algorithm}}\vspace{1cm}
-\newpage
+\end{algorithm}}\vspace{0.6cm}
+
 The inputs are as follows: (i) heat generation by technology/source at the NUTS0 level, (ii) population as well as population density at the NUTS3 level, and (iii) empirical assumptions in terms of network infrastructure requirements per heat technology/source and potentials for heat network infrastructure (see Table \ref{tab:require}). The algorithm itself consists of three main parts: initialization, pre-calculations, and downscaling. First, the initialization of the algorithm sorts the heat generation technologies/sources in descending order in terms of network infrastructure requirements. Then, the calculation starts with the first technology/source (highest requirements) (line 6). For this technology/source, all possible sub-regions are collected (line 9). Those sub-regions already fully supplied (no remaining heat demand) are filtered out (line 11). After further pre-calculation steps, the available amount of heat generation is downscaled to all valid sub-regions using population as a proxy. This procedure is repeated sequentially for each heat technology/source. The outputs of the sequential downscaling algorithm are heat generation by source and the amount of heat demand covered by centralized heat networks at the NUTS3 level.
 
 \subsection{Iterative downscaling (from the sub-region to community levels)}\label{alg2}
 This section explains the methodology of the iterative downscaling algorithm. We propose this downscaling technique projecting heat generation by technology/source from the sub-region (NUTS3) to the community levels (LAU) (see Table \ref{tab:nuts}). This in-depth spatial resolution is imperative for realistic network infrastructure planning, as stated by Zvoleff et al. \cite{zvoleff2009impact}. The underlying concept of iterative downscaling is based on graph theory and assessing network topology using benchmark indicators. 
 
-\newpage
 \scalebox{1}{
 	\begin{algorithm}[H]
 		\setstretch{1}
@@ -155,7 +154,7 @@ This section explains the methodology of the iterative downscaling algorithm. We
 		\caption{Iterative downscaling algorithm (NUTS3 to LAU level)}
 		\label{Alg:2}
 	\end{algorithm}
-}
+}\vspace{0.6cm}
 
 \subsubsection{Algorithm description}
 The iterative downscaling algorithm is presented in Algorithm 2. The idea is to assess, benchmark, and improve the topology of centralized heat networks. This is achieved in our proposed approach by iterative downscaling. Essentially, the main steps of the algorithm can be summarized as follows:
