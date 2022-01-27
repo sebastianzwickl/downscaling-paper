@@ -11,3 +11,6 @@
 # BibTeX
 *.bbl
 *.blg
+
+# exclude reference folder
+references/*
