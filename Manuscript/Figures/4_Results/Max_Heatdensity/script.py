@@ -59,7 +59,7 @@ ax.text(x=0.2, y=5.1, s="Minimum", fontsize=10)
 
 # # Add some text for labels, title and custom x-axis tick labels, etc.
 # ax.set_ylabel('Scores')
-ax.set_title("Heat density of district heating (DH) "+r"in $\frac{GWh}{km^2}$", pad=10, fontsize=14)
+ax.set_title("Heat density of district heating (DH)\nfor varying shares of heat pump (air) generation"+r" in $\frac{GWh}{km^2}$"+"", pad=10, fontsize=14)
 ax.set_xticks(x)
 ax.set_xticklabels(labels=labels)
 

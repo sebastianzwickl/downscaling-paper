@@ -144,7 +144,7 @@ fig_area.annotate(
         headwidth=4,
         width=0.75,
         connectionstyle="arc3,rad=-.2",
-        color="gray",
+        color="black",
     ),
 )
 
