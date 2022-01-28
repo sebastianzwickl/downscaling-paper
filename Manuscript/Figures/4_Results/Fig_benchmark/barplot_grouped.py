@@ -4,15 +4,16 @@ import pyam as py
 import numpy as np
 
 
-color={"Directed Transition": "#F6A9A9",
-       "Societal Commitment": "#FFE194",
-       "Gradual Development": "#BFD8B8",
-       "Techno-Friendly":"#D7E9F7"}
+color={"Directed Transition": "#A2D2FF",
+       "Societal Commitment": "#FF865E",
+       "Gradual Development": "#C8C6C6",
+       "Techno-Friendly":"#FEE440"}
+
 
 c_edge = "#161616"
 
 plt.style.use("seaborn-paper")
-data = py.IamDataFrame("Compare-scenarios.xlsx").filter(region="AT130", keep=False)
+data = py.IamDataFrame("Compare-scenarios.xlsx")
 
 scenario = data.data["information"]
 plt.rcParams['hatch.linewidth'] = 0.75
@@ -32,20 +33,25 @@ for number, _patch in enumerate(figures.patches):
         
 
 ax.set_xlabel("")
-ax.tick_params(axis='x', which='major', pad=2, rotation=0)
-ax.set_xticklabels(labels=["South\nViennesse\nenviron (AT127)", "Klagenfurt-\nVillach\n(AT211)","Graz\n(AT221)", "Linz-Wels\n(AT312)", "Salzburg\n(AT323)", "Innsbruck\n(AT332)","Rheintal-\nBodensee\n(AT342)"])     
-ax.set_title("Heat density of centralized heat networks "+r"in $\frac{GWh}{km^2}$", fontsize=12)
+ax.tick_params(axis='x', which='major', pad=2, rotation=0, labelsize=10)
+ax.tick_params(axis='y', which='major', labelsize=10)
+ax.set_xticklabels(labels=["Vienna (AT130)","Graz\n(AT221)", "Linz-Wels\n(AT312)", "Rheintal-\nBodensee\n(AT342)"])     
+ax.set_title("Heat density of district heating in 2050 "+r"in $\frac{GWh}{km^2}$", fontsize=12)
 
 
 import matplotlib.patches as mpatches
 _patches = []
-_patches.append(mpatches.Patch(facecolor='#F6A9A9', label='Directed Transition', edgecolor="none", linewidth=1))
-_patches.append(mpatches.Patch(facecolor='#FFE194', label='Societal Commitment', edgecolor="none", linewidth=1))
-_patches.append(mpatches.Patch(facecolor='#D7E9F7', label='Techno-Friendly', edgecolor="none", linewidth=1))
-_patches.append(mpatches.Patch(facecolor='#BFD8B8', label='Gradual Development', edgecolor="none", linewidth=1))
+_patches.append(mpatches.Patch(facecolor='#A2D2FF', label='Directed Transition', edgecolor="none", linewidth=1))
+_patches.append(mpatches.Patch(facecolor='#FF865E', label='Societal Commitment', edgecolor="none", linewidth=1))
+_patches.append(mpatches.Patch(facecolor='#FEE440', label='Techno-Friendly', edgecolor="none", linewidth=1))
+_patches.append(mpatches.Patch(facecolor='#C8C6C6', label='Gradual Development', edgecolor="none", linewidth=1))
 
-leg = ax.legend(handles=_patches, loc='upper left', fontsize=8, framealpha=1, handlelength=1, handletextpad=0.5, frameon=True, fancybox=True, shadow=False, edgecolor="black",  ncol=1, title="Scenarios")
-leg.get_frame().set_linewidth(0.25)
+leg = ax.legend(handles=_patches, loc='upper right', fontsize=8, framealpha=1, handlelength=1, handletextpad=0.5, frameon=True, fancybox=True, shadow=False, edgecolor="black",  ncol=2, title="Scenarios", columnspacing=0.5, title_fontsize=10, bbox_to_anchor=(0.96, 0.975))
+
+
+
+
+leg.get_frame().set_linewidth(0.5)
 
 
 # ax2 = ax.twinx()
@@ -58,7 +64,7 @@ leg.get_frame().set_linewidth(0.25)
 # leg2 = ax2.legend(handles=_patches, loc="upper right", fontsize=8, framealpha=1, handlelength=1, handletextpad=1, frameon=True, fancybox=True, shadow=False, edgecolor="black", ncol=1, bbox_to_anchor=(0.95,0.85))
 # leg2.get_frame().set_linewidth(0.25)
 
-axins = ax.inset_axes([.55, .65, .4, .3])
+axins = ax.inset_axes([.55, .45, .4, .3])
 axins.set_xticks([])
 axins.set_yticks([])
 _data = data.filter(region="AT221")
@@ -78,7 +84,9 @@ axins.set_xticks(ticks=[])
 _fig.patches[0].set_color("#E6DDC6")
 _fig.patches[0].set_alpha(0.9)
 
+
 ax.tick_params(axis='y', which='major', labelsize=10)
+ax.tick_params(axis='x', which='major', labelsize=10)
 
 _fig.patches[1].set_color("#E6DDC6")
 _fig.patches[1].set_edgecolor("black")

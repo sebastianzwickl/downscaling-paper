@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 plt.style.use("seaborn")
 fig, ax = plt.subplots()
 
-tech = ["Total demand", "Heat Storage", "Biomass", "Direct electric", "Natural gas", "Hydrogen", "Heat pump (air)", "Heat pump (ground)", "Oil"]
-height1 = [-18.15,10.58,-8.87,-2.09,-46.68,2.17,15.7,21.47,-10.29]
+tech = ["Total demand", "Heat Storage", "Biomass\n+ Waste", "Direct electric", "Natural gas", "Hydrogen", "Heat pump (air)", "Heat pump (ground)", "Oil"]
+height1 = [-28.70,10.58,-8.87,-2.09,-46.68,2.17,15.7,21.47,-10.29]
 bars = ax.bar(x=[1,2,3,4,5,6,7,8,9], height=height1, linewidth=1.)
 ax.plot([0.5, 9.5], 2*[0], color="black", linewidth=2.5)
 ax.set_xticks(range(1,10,1))
@@ -27,19 +27,19 @@ for _v in enumerate(height1):
         ax.text(x=_v[0]+1, y=height1[_v[0]]-3, s=str(height1[_v[0]]), va="center", ha="center", fontsize=14)
         ax.text(x=_v[0]+1, y=1.5, s=str(tech[_v[0]]), va="bottom", ha="center", fontsize=14, rotation=90)
         
-ax.annotate(
-    '',
-    fontsize=0,
-    color="red",
-    multialignment='center',
-    xy=(1, -23), xycoords='data',
-    xytext=(1.4, -30), textcoords='data',
-    arrowprops=dict(headlength=8, 
-                    headwidth=4,
-                    width=0.75,
-                    connectionstyle="arc3,rad=-.4",
-                    color="#000000"))
-ax.text(x=1.5, y=-33, s="Values of the Societal Commitment\nscenario (scenario with lowest\ntotal heat demand)", fontsize=10)
+# ax.annotate(
+#     '',
+#     fontsize=0,
+#     color="red",
+#     multialignment='center',
+#     xy=(1, -23), xycoords='data',
+#     xytext=(1.4, -30), textcoords='data',
+#     arrowprops=dict(headlength=8, 
+#                     headwidth=4,
+#                     width=0.75,
+#                     connectionstyle="arc3,rad=-.4",
+#                     color="#000000"))
+# ax.text(x=1.5, y=-33, s="Values of the Societal Commitment\nscenario (scenario with lowest\ntotal heat demand)", fontsize=10)
 
 ax.annotate(
     'Scenario with\nhighest value',
@@ -113,8 +113,8 @@ _patches.append(mpatches.Patch(facecolor='#FF4C29', label='Decreasing generation
 leg = ax.legend(handles=_patches, loc='lower left', fontsize=12, framealpha=1, handlelength=0.75, handletextpad=0.5, frameon=True, fancybox=True, shadow=False, edgecolor="black")
 leg.get_frame().set_linewidth(1)
 
-ax.fill_between(x=[1.425,1.475],y1=-15.21, y2=-18.15, color="gray", alpha=0.8)
-ax.plot(1.45, -18.15, marker="H", markersize=6, color="black")
+ax.fill_between(x=[1.425,1.475],y1=-15.21, y2=-28.7, color="gray", alpha=0.8)
+ax.plot(1.45, -28.70, marker="H", markersize=6, color="black")
 ax.plot(1.45, -15.21, marker="v", markersize=6, color="black")
 
 ax.fill_between(x=[2.425,2.475],y1=10.58, y2=16.35, color="gray", alpha=0.8)
@@ -170,7 +170,7 @@ leg2.get_frame().set_linewidth(1)
 # "d" = Direct-Transition
 
 ax.set_yticklabels(labels=[])
-ax.set_title("Absolute differences of heat generation by source\n between 2020 and 2050 in TWh", fontsize=20)
+ax.set_title("Absolute differences of heat generation by source\n in Austria between 2020 and 2050 in TWh", fontsize=20)
 plt.tight_layout()
 fig.savefig("Ref-2050.png", dpi=500)
 fig.savefig("Ref-2050.eps", format="eps")
