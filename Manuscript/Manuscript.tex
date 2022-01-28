@@ -4,7 +4,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{Disclosing the heat density of centralized heat networks in Austria 2050 under the 1.5°C climate target}
+\title{Disclosing the heat density of \replaced{district heating}{centralized heat} networks in Austria 2050 under the 1.5°C climate target}
 \author[1,2]{Sebastian Zwickl-Bernhard\corref{cor1}}
 \ead{zwickl@eeg.tuwien.ac.at}
 \author[2]{Daniel Huppmann}
@@ -15,16 +15,14 @@
 \address[2]{Energy, Climate and Environment (ECE) Program,  International Institute for Applied Systems Analysis (IIASA), Laxenburg, Austria}
 
 \begin{abstract}
-	Achieving the \SI{1.5}{\degreeCelsius} climate target requires, among others, a sustainable transformation of the heat supply. We downscale different European decarbonization scenarios of the heating sector to the Austrian municipal level, using tailor-made downscaling techniques accounting for infrastructure requirements of renewable heat sources and the topology of centralized heat networks.
-	We demonstrate that allocating district heating networks as part of the downscaling from national results to a local resolution is crucial for a cost-effective and efficient decarbonized heat supply in Austria in 2050. We identify potential for eight different districts with centralized heating networks, supplying heat demand between \SI{0.6}{} and \SI{12}{TWh}. Nevertheless, seven of these networks do not reach the heat density required for economic and technical efficiency from today's techno-economic perspective and industry benchmarks. We conclude that the decarbonization leads to centralized heat networks with lower heat densities.
+	\added{Adherence to the remaining CO\textsubscript{2} budget of}\deleted{Achieving} the \SI{1.5}{\degreeCelsius} climate target requires\deleted{, among others,} a sustainable transformation of the heat\added{ing} \replaced{sector}{supply}. We downscale \replaced{cost-effective heat supply of}{different} European decarbonization scenarios \deleted{of the heating sector }to the Austrian \replaced{community}{municipal} level, using tailor-made downscaling techniques accounting for infrastructure requirements of renewable heat sources and the topology of \replaced{district heating}{centralized heat} networks. \deleted{We demonstrate that allocating district heating networks as part of the downscaling from national results to a local resolution is crucial for a cost-effective and efficient decarbonized heat supply in Austria in 2050.} We \replaced{find}{identify} potential for \replaced{four}{eight} \replaced{decarbonized}{different} district\deleted{s} \added{heating networks in Austria in 2050}\deleted{with centralized heating networks, supplying heat demand between 0.6 and 12TWh}. \replaced{Not all of these networks}{Nevertheless, seven of these networks do not} reach the heat density required for economic and technical efficiency from today's techno-economic perspective and industry benchmarks. \replaced{However, the identified heat density gap can be reduced by an increased allocation of (large-scale) heat pump generation feeding into district heating.}{We conclude that the decarbonization leads to centralized heat networks with lower heat densities.}
 \end{abstract}
 
 \begin{keyword}
-	Centralized heat networks, heat density, district heating, 1.5°C climate target, downscaling, 2050
+	District heating, heat density, \added{network topology}, 1.5°C climate target, downscaling, 2050
 \end{keyword}
 \end{frontmatter}
 
-\newpage
 \section*{Nomenclature}
 \begin{center}
 	\renewcommand{\arraystretch}{1.1}
@@ -35,7 +33,7 @@
 		\hline
 		Set and index & & \\
 		\hline
-		{$t \in \mathcal{T}=\{1,\ldots,T\}$} & Set of heat generation technologies/sources, index by $t$\\
+		{$t \in \mathcal{T}=\{1,\ldots,T\}$} & Set of heat sources/generation technologies, index by $t$\\
 		{$r \in \mathcal{R}=\{1,\ldots,R\}$} & Set of sub-regions, index by $r$\\
 		{$s \in \mathcal{S}=\{0,1,*\}$} & Stage of iterations, index by $s$\\
 		\hline
@@ -49,10 +47,10 @@
 		{$\hat{q}_{t,r}$} & Heat generation per $t$ and $r$& \SI{}{TWh}\\
 		{$q^{heat}_{r}$} & Heat demand per $r$& \SI{}{TWh}\\
 		{$\tilde{q}_{t}$} & Available heat generation per $t$& \SI{}{TWh}\\
-		{$G^{s}$} & Centralized heat network graph at $s$ & \\
-		{$n^{s}$} & Node of centralized heat network graph at $s$ & \\
+		{$G^{s}$} & District heating network graph at $s$ & \\
+		{$n^{s}$} & Node of district heating network graph at $s$ & \\
 		{$l^{s}_{k,j}$} & Line connecting nodes $k$ and $j$ at $s$ & \\
-		{$q^{s}_{n^{s}}$} & Nodal centralized heat generation at $s$ & \SI{}{TWh}\\
+		{$q^{s}_{n^{s}}$} & Nodal district heating at $s$ & \SI{}{TWh}\\
 		{$\tilde{q}^{s}_{n^{s}}$} & Nodal on-site heat generation at $s$ & \SI{}{TWh}\\
 		{$\pi^{s}_{n^{s}}$} & Nodal benchmark indicator value at $s$ & \SI{}{1}\\
 		{$\alpha_{n^{s}}$} & Number of triangles with direct neighboring nodes & \SI{}{1}\\
@@ -78,7 +76,42 @@ This project has received funding from the European Union's Horizon 2020 Researc
 \appendix
 \setcounter{table}{0}
 \setcounter{figure}{0}
+\newpage
+\section{Current Austrian heat market}\label{appendixC}
+\added{Table \ref{tab:numbers} provides an overview of the Austrian heat market in 2017. Particularly, the proportion per heat source/generation technology on the total heat demand for space heating and hot water is shown. The absolute number of households supplied by heat pumps and solarthermal is in total 294,075 (see row 6 in the table).} \added{According to \cite{statisitik2016}, the total heat production from district heating was around} \SI{24}{TWh} \added{in 2016. Thereby, the share of renewable energy was 45\%. Besides, the share of waste sources was 9\%.}  
 
+\definecolor{Gray}{gray}{0.95}
+\begin{table}[h]
+	\centering
+	\resizebox{1\textwidth}{!}{% use resizebox with textwidth
+		\renewcommand{\arraystretch}{1.1}
+		\begin{tabular}{lcc}
+			\toprule 
+			& Proportion in \% & Abs. number\\\cmidrule(rl){2-2}\cmidrule(rl){3-3}
+			Heat source/technology& on space and hot water demand & of households supplied\\\hline
+			Biomass & 28.3 & 725,439\\
+			Natural gas & 26.5 & 913,448\\
+			Oil & 17.2 & 626,109\\
+			District heating & 14.6 & 1,112,734\\
+			Direct electric & 8.2 & 210,648\\
+			Heat pumps & 3.0 & \multirow{2}{*}{294,075}\\
+			Solarthermal & 1.9 & \\
+			Coal & 0.4 & 7,640\\
+			\bottomrule
+	\end{tabular}}
+	\caption{\added{Proportion of heat sources/generation technologies on the total heat demand (space and hot water) and absolute number of households supplied. Source: \cite{oesterreichsenergie}.}}
+	\label{tab:numbers}
+\end{table}
+
+\section{Further methodology illustrations}\label{appendixB}
+Figure \ref{fig:app:method} shows an illustrative example of the iterative downscaling algorithm (Algorithm 2). It shows two different conditions of a simple graph. In the first condition ($i$), the network topology consists of four nodes (A-D) and four lines. It is shown in the subfigure in the top left. The table below (bottom left) shows the amount of \replaced{district heating}{centralized} and on-site heat supply as well as the indicator value for each node. Note that the numbers are only for illustration. Node A has the lowest indicator value (see marker [1] in the left table) and, therefore, its amount of \replaced{district heating}{centralized heat supply} (marker [2]) is reallocated to the remaining nodes of the network (marker [3]). This process increases the on-site heat supply accordingly at node A as this node is not connected to the network in condition $i+1$ and increases the amount of \replaced{district heating}{centralized heat supply} at nodes B-D (see the larger nodes in the top right subfigure). The heat demand of node A in condition $i+1$ is covered only by on-site heat supply. Node A is removed from the graph and thus disconnected from the network.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{figures/_appendix/Method_appendix.pdf}
+	\caption{Illustrative example of Algorithm 2 showing a simple graph with four nodes in two different conditions. The node with the lowest indicator value in condition $i$ (node A) is removed from the graph (markers [1]-[3] in the table at the bottom left). The amount of \replaced{district heating}{centralized heat supply} from node A is reallocated to the remaining nodes B-D (see table at the bottom right).}
+	\label{fig:app:method}
+\end{figure}
 
 \section{Data and further empirical settings}\label{appendixA}
 \begin{table}[h]
@@ -97,14 +130,13 @@ This project has received funding from the European Union's Horizon 2020 Researc
 	\label{tab:a2}
 \end{table}
 
-\section{Further methodology illustrations}\label{appendixB}
-Figure \ref{fig:app:method} shows an illustrative example of the iterative downscaling algorithm (Algorithm 2). It shows two different conditions of a simple graph. In the first condition ($i$), the network topology consists of four nodes (A-D) and four lines. It is shown in the subfigure in the top left. The table below (bottom left) shows the amount of centralized and on-site heat supply as well as the indicator value for each node. Note that the numbers are only for illustration. Node A has the lowest indicator value (see marker [1] in the left table) and, therefore, its amount of centralized heat supply (marker [2]) is reallocated to the remaining nodes of the network (marker [3]). This process increases the on-site heat supply accordingly at node A as this node is not connected to the network in condition $i+1$ and increases the amount of centralized heat supply at nodes B-D (see the larger nodes in the top right subfigure). The heat demand of node A in condition $i+1$ is covered only by on-site heat supply. Node A is removed from the graph and thus disconnected from the network.
+\section{Further results of the heat density of district heating for varying allocation of heat pump (air) generation to the feeding energy mix}\label{Appendix:D}
+\added{Figure \ref{fig:sens} shows the heat density of district heating in Graz (AT221) in the \textit{Directed Transition} scenario. On the x-axis the amount of district heating is shown. The heat density in the \textit{Directed Transition} is characterized by a prioritized use of synthetic gas and waste in district heating only and is indicated by the black circle (top). Additionally, the section between the two dotted lines marks the heat generation by heat pump (air). The left dotted line marks the situation where heat pump (air) generation is exclusively on-site (i.e. small-scale heat pump units)) while the right dotted line where heat pump (air) generation is exclusively used in district heating (i.e. large-scale heat pump (air) units). Any point in between the two dotted lines is therefore a split between small-scale and large-scale heat pump (air) units. Particularly, the maximum heat density of} \SI{10.9}{GWh \per km^2} \added{is reached by a share of two thirds of large-scale heat pump (air) units feeding into district heating while one third remains on-site.}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\linewidth]{figures/_appendix/Method_appendix.pdf}
-	\caption{Illustrative example of Algorithm 2 showing a simple graph with four nodes in two different conditions. The node with the lowest indicator value in condition $i$ (node A) is removed from the graph (markers [1]-[3] in the table at the bottom left). The amount of centralized heat supply from node A is reallocated to the remaining nodes B-D (see table at the bottom right).}
-	\label{fig:app:method}
+	\includegraphics[width=1\linewidth]{Figures/4_Results/Sensitivity_Analysis/Sen_District_heating.eps}
+	\caption{\added{Heat density of district heating in Graz (AT221) in the \textit{Directed Transition} scenario (black circle) and varying allocation of heat pump (air) generation into district heating (black line). The maximum heat density is} \SI{10.9}{GWh \per km^2} \added{and reached by a share of two thirds of heat pump (air) generation feeding into district heating.}}
+	\label{fig:sens}
 \end{figure}
-
 \end{document}
