@@ -14,3 +14,6 @@
 
 # exclude reference folder
 references/*
+data/*
+submission/*
+supplementary materials/*
