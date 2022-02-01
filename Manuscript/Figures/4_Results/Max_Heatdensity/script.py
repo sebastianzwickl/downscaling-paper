@@ -66,13 +66,23 @@ ax.set_xticklabels(labels=labels)
 ax.tick_params(axis='y', which='major', labelsize=10)
 ax.tick_params(axis='x', which='major', labelsize=10)
 
-# import matplotlib.patches as mpatches
-# _patches = []
-# _patches.append(mpatches.Patch(facecolor='#502064', label='Directed Transition', edgecolor="none", linewidth=1))
-# _patches.append(mpatches.Patch(facecolor='#8267BE', label='Societal Commitment', edgecolor="none", linewidth=1))
-# _patches.append(mpatches.Patch(facecolor='#3FA796', label='Techno-Friendly', edgecolor="none", linewidth=1))
-# _patches.append(mpatches.Patch(facecolor='#FFBD35', label='Gradual Development', edgecolor="none", linewidth=1))
-
+ax.plot([-0.25, 3.25], [10, 10], linewidth=1., color="#444941", linestyle="solid")
+ax.text(x=1, y=20, s='Heat density required for economic\nviability in current systems',
+        rotation=0, fontsize=7, color='#000000',
+        ha='center', va='center', bbox=dict(facecolor="white", edgecolor="#444941", boxstyle='round,pad=1', linestyle='solid',
+                                              linewidth=0.75), zorder=100)
+ax.annotate(
+    '',
+    fontsize=0,
+    color="red",
+    multialignment='center',
+    xy=(1.5, 10.5), xycoords='data',
+    xytext=(1, 20), textcoords='data',
+    arrowprops=dict(headlength=8, 
+                    headwidth=4,
+                    width=0.1,
+                    connectionstyle="arc3,rad=-.2",
+                    color="#444941"))
 
 leg = ax.legend(loc='upper right', fontsize=9, framealpha=1, handlelength=1, handletextpad=0.75, frameon=True, fancybox=True, shadow=False, edgecolor="black",  ncol=1, columnspacing=0.5)
 leg.get_frame().set_linewidth(0.5)
