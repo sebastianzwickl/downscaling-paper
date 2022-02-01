@@ -61,9 +61,10 @@ if __name__ == "__main__":
     axes[0].plot([0.51+1.45, 0.51+1.45], [0, 12], linestyle="dotted", linewidth=1.5, color="#A2D2FF")
     # axes[0].plot([0.51+0.21+1.45, 0.51+0.21+1.45], [0, 12], linestyle="dotted", linewidth=1.5, color="gray")
     
-    axes[0].plot([0.51], [4.92], marker="o", zorder=11, color="black", markersize=5)
+    axes[0].plot([0.51], [4.92], marker="d", zorder=11, color="black", markersize=5)
+    axes[0].plot([0.51+1.45], [3.99], marker="o", zorder=11, color="black", markersize=5)
     
-    axes[0].plot([1.5], [10.93], marker="o", zorder=11, color="#F47340", markersize=5)
+    axes[0].plot([1.5], [10.93], marker="*", zorder=11, color="#F47340", markersize=6)
     axes[0].plot([1.5, 1.5], [10.93, 6], zorder=-2, color="#F47340", linewidth=1)
     axes[0].plot([1.4, 1.5], [6, 6], zorder=11, color="#F47340", linewidth=1)
     axes[0].text(x=1.1, y=5.5, s="10.9", color="#F47340", fontsize=12)
@@ -95,9 +96,10 @@ if __name__ == "__main__":
     # draw_brace(axes[0], (0, 0.51), 'DH')
         
     
-    _line = Line2D([0], [0], label = "Directed Transition",color="black", marker="o", linewidth=0)
-    _line1 = Line2D([0], [0], label = "Max. heat density",color="#F47340", marker="o", linewidth=0)
-    leg = axes[0].legend(handles=[_line1, _line], loc='upper right', fontsize=8, framealpha=1, handlelength=1, handletextpad=0.75, borderpad=0.75, columnspacing=1, edgecolor="black", frameon=True, ncol=1)
+    _line = Line2D([0], [0], label = "Directed Transition incl.\nheat pumps (air) on-site",color="black", marker="d", linewidth=0, markersize=4)
+    _line1 = Line2D([0], [0], label = "Maximum heat density",color="#F47340", marker="*", linewidth=0)
+    _line2 = Line2D([0], [0], label = "All heat pumps (air) in DH",color="black", marker="o", linewidth=0, markersize=4)
+    leg = axes[0].legend(handles=[_line1, _line, _line2], loc='upper right', fontsize=8, framealpha=1, handlelength=1, handletextpad=0.75, borderpad=0.75, columnspacing=1, edgecolor="black", frameon=True, ncol=1)
     leg.get_frame().set_linewidth(0.1)
     
     gen = [0.5, 0.6, 1.45, 0.21, 1.12]
