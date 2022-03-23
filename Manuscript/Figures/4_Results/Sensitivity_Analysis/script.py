@@ -70,6 +70,8 @@ if __name__ == "__main__":
     axes[0].text(x=1.1, y=5.5, s="10.9", color="#F47340", fontsize=12)
     axes[0].text(x=0.25, y=3.8, s="4.9", color="black", fontsize=12)
     
+    # axes[0].plot([0, 2.1], [10, 10], linestyle="solid", linewidth=1.5, color="#A2D2FF")
+    
     axes[0].annotate(
         "",
         fontsize=3,
@@ -89,16 +91,16 @@ if __name__ == "__main__":
         )
     
     axes[0].text(x=0.65, y=1.5, s="Heat pump (air) in DH", color="#11468F", fontsize=10)
-    axes[0].set_xlabel("Amount of district heating (DH) in TWh")
+    axes[0].set_xlabel("District heating (DH) in TWh")
     axes[0].set_ylabel("Heat density"+r"in $\frac{GWh}{km^2}$")
     
     # draw_brace(axes[0], (0.51+0.21+1.45, 3.43), 'No supply for DH')
     # draw_brace(axes[0], (0, 0.51), 'DH')
         
     
-    _line = Line2D([0], [0], label = "Directed Transition incl.\nheat pumps (air) on-site",color="black", marker="d", linewidth=0, markersize=4)
+    _line = Line2D([0], [0], label = "Directed Transition incl.\nall heat pump (air) on-site",color="black", marker="d", linewidth=0, markersize=4)
     _line1 = Line2D([0], [0], label = "Maximum heat density",color="#F47340", marker="*", linewidth=0)
-    _line2 = Line2D([0], [0], label = "All heat pumps (air) in DH",color="black", marker="o", linewidth=0, markersize=4)
+    _line2 = Line2D([0], [0], label = "All heat pump (air) in DH",color="black", marker="o", linewidth=0, markersize=4)
     leg = axes[0].legend(handles=[_line1, _line, _line2], loc='upper right', fontsize=8, framealpha=1, handlelength=1, handletextpad=0.75, borderpad=0.75, columnspacing=1, edgecolor="black", frameon=True, ncol=1)
     leg.get_frame().set_linewidth(0.1)
     
@@ -130,7 +132,7 @@ if __name__ == "__main__":
     axes[1].set_xticklabels([])
     axes[1].set_xlabel("Heat generation by source")
     
-    fig.suptitle("Heat density of district heating in Graz (AT221)\nby amount of heat pumps (air) generation used in district heating")
+    # fig.suptitle("Heat density of district heating in Graz (AT221)\nby amount of heat pumps (air) generation used in district heating")
     plt.tight_layout()
     fig.savefig("Sen_District_heating.eps", format="eps")
     fig.savefig("Sen_District_heating.png", dpi=1000)
