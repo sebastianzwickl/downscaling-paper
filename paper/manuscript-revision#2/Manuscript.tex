@@ -104,41 +104,5 @@ This project has received funding from the European Union's Horizon 2020 Researc
 	\label{tab:numbers}
 \end{table}
 
-%\section{Illustration of the benchmark indicator value}\label{appendixB}
-%Figure \ref{fig:app:method} shows an illustrative example of the iterative downscaling algorithm (Algorithm 2). It shows two different conditions of a simple graph. In the first condition ($i$), the network topology consists of four nodes (A-D) and four lines. It is shown in the subfigure in the top left. The table below (bottom left) shows the amount of \replaced{district heating}{centralized} and on-site heat supply as well as the indicator value for each node. Note that the numbers are only for illustration. Node A has the lowest indicator value (see marker [1] in the left table) and, therefore, its amount of \replaced{district heating}{centralized heat supply} (marker [2]) is reallocated to the remaining nodes of the network (marker [3]). This process increases the on-site heat supply accordingly at node A as this node is not connected to the network in condition $i+1$ and increases the amount of \replaced{district heating}{centralized heat supply} at nodes B-D (see the larger nodes in the top right subfigure). The heat demand of node A in condition $i+1$ is covered only by on-site heat supply. Node A is removed from the graph and thus disconnected from the network.
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=1\linewidth]{figures/_appendix/Method_appendix.pdf}
-%	\caption{Illustrative example of Algorithm 2 showing a simple graph with four nodes in two different conditions. The node with the lowest indicator value in condition $i$ (node A) is removed from the graph (markers [1]-[3] in the table at the bottom left). The amount of \replaced{district heating}{centralized heat supply} from node A is reallocated to the remaining nodes B-D (see table at the bottom right).}
-%	\label{fig:app:method}
-%\end{figure}
-
-\section{Data and further empirical settings}\label{appendixA}
-\begin{table}[h]
-	\centering
-	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.35}
-		\begin{tabular}{lccc}
-			\toprule 
-			& Description & Data availability & Data source\\\hline
-			GENeSYS-MOD v2.0 & Heat generation by source & \cite{explorer} & \cite{loffler2017designing}\\
-			Austrian population density & in 2019 & \multicolumn{2}{c}{\href{https://www.statistik.at/web_de/statistiken/index.html}{\textit{Statistik Austria}}}\\
-			Austrian population & in 2050 & \multicolumn{2}{c}{\href{https://ec.europa.eu/eurostat/databrowser/view/tps00003/default/table?lang=en}{\textit{Eurostat}}}\\
-			\bottomrule
-	\end{tabular}}
-	\caption{Empirical data settings}
-	\label{tab:a2}
-\end{table}
-
-\section{Heat density for varying allocation of heat pump generation into district heating}\label{Appendix:D}
-\added{Figure \ref{fig:sens} shows the heat density of the district heating network in Graz (AT221) in the \textit{Directed Transition} scenario. On the x-axis, the amount of district heating is shown. District heating in the \textit{Directed Transition} scenario includes synthetic gas and waste only. The corresponding heat density is indicated by the black circle (top). The range between the two dotted lines marks the heat generation by heat pump (air) units. The left dashed line indicates heat pump (air) generation if used exclusively on-site (i.e., small-scale heat pump (air) units). Similarly, the right dashed line indicates heat pump (air) generation if used exclusively in district heating (i.e., large-scale heat pump (air) units). Each point between the two dashed lines corresponds to an individual split between small- and large-scale heat pump (air) units. The maximum heat density of} \SI{10.9}{GWh \per km^2} \added{is reached by a share of two-thirds of large-scale heat pump (air) units feeding into district heating while one-third is on-site.}
-
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=1\linewidth]{Figures/4_Results/Sensitivity_Analysis/Sen_District_heating.eps}
-%	\caption{\added{Heat density of the district heating network in Graz (AT221) in the \textit{Directed Transition} scenario (black circle) and for varying allocation of heat pump (air) generation into district heating (black line). The maximum heat density of} \SI{10.9}{GWh \per km^2} \added{is reached by a share of two-thirds of heat pump (air) generation feeding into district heating.}}
-%	\label{fig:sens}
-%\end{figure}
 
 \end{document}
