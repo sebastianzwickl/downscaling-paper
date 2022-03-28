@@ -27,6 +27,8 @@ def init_area_eff_factor(model, lau):
         elif category == 'I':
             return 0.5
 
+    elif int(lau) == 90001:
+        return 0.65
     else:
         return 1
 
@@ -248,12 +250,12 @@ solution = Solver.solve(model, tee=True)
 solution.write()
 model.objective.display()
 
-i = 0
-for lau in model.set_laus:
-    if model.v_q_dh_l[lau].value * 1000 / (model.p_phi_l[lau] * model.p_per_area_l[lau]) > 0.01:
-        i += 1
-        print('{} : {}'.format(lau, model.v_q_dh_l[lau].value * 1000 / (model.p_phi_l[lau] * model.p_per_area_l[lau])))
-print(i)
+# i = 0
+# for lau in model.set_laus:
+#     if model.v_q_dh_l[lau].value * 1000 / (model.p_phi_l[lau] * model.p_per_area_l[lau]) > 0.01:
+#         i += 1
+#         print('{} : {}'.format(lau, model.v_q_dh_l[lau].value * 1000 / (model.p_phi_l[lau] * model.p_per_area_l[lau])))
+# print(i)
 
 time = datetime.now().strftime("%Y%m%dT%H%M")
 path = os.path.join("solution", "{}-{}".format(model.scenario, time))
@@ -277,7 +279,37 @@ for lau in model.set_laus:
         df_out = write_IAMC(df_out, _model, _scenario, lau, "On-Site / Dec.", "MWh", 2050, model.v_q_ons_l[lau].value * 1000000)
 df_out.to_excel(os.path.join(path, "heat-supply.xlsx"), index=False)
 
+df_out = pd.DataFrame()
+df_out_lau_heat_density = pd.DataFrame()
+dh_final = 0
+dh_out = pd.DataFrame()
 
+nuts3_to_lau = pd.read_excel('data/Allocating_LAU_to_NUTS3_1.1.2020.xlsx')
+nuts3 = nuts3_to_lau['NUTS3'].unique()
+for nut in nuts3:
+    temp = nuts3_to_lau[nuts3_to_lau['NUTS3'] == nut]
+    dh = 0
+    area = 0
+    for lau in temp['LAU ID']:
+        if str(lau) in model.set_laus:
+            lau = str(lau)
+            if model.v_q_dh_l[lau].value * 1000 / (model.p_phi_l[lau] * model.p_per_area_l[lau]) > 0.01:
+                dh += model.v_q_dh_l[lau].value * 1000
+                area += model.p_phi_l[lau] * model.p_per_area_l[lau]
+    if area != 0:
+        df_out = write_IAMC(df_out, _model, _scenario, nut, "Heat density", "GWh / km ** 2", 2050, dh / area)
+    else:
+        df_out = write_IAMC(df_out, _model, _scenario, nut, "Heat density", "GWh / km ** 2", 2050, 0)
+        
+    if area != 0:
+        if dh / area > 10:
+            for lau in temp['LAU ID']:
+                lau = str(lau)
+                if model.v_q_dh_l[lau].value * 1000 / (model.p_phi_l[lau] * model.p_per_area_l[lau]) > 0.01:
+                    df_out_lau_heat_density = write_IAMC(df_out_lau_heat_density, _model, _scenario, lau, "Heat density", "GWh / km ** 2", 2050, model.v_q_dh_l[lau].value * 1000 / (model.p_phi_l[lau] * model.p_per_area_l[lau]))
+                    dh_final += model.v_q_dh_l[lau].value
 
-
-
+dh_out = write_IAMC(dh_out, _model, _scenario, "AT", "District Heating", "TWh", 2050, dh_final)                
+df_out_lau_heat_density.to_excel(os.path.join(path, "high-heat-density-lau-10.xlsx"), index=False)            
+dh_out.to_excel(os.path.join(path, "final-district-heating.xlsx"), index=False)                      
+df_out.to_excel(os.path.join(path, "heat-density-nuts3.xlsx"), index=False)
