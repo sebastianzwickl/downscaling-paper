@@ -1,0 +1,18 @@
+# YAML 1.2
+---
+authors: 
+  -
+    affiliation: "Technische Universität Wien, Energy Economics Group (EEG)"
+    family-names: "Zwickl-Bernhard"
+    given-names: Sebastian
+    orcid: "https://orcid.org/0000-0002-8599-6278"
+cff-version: "1.1.0"
+version: 1.0
+date-released: 2022-04-08
+license: "GPL-3.0 License"
+message: "If you use this software, please cite it using these metadata."
+repository-code: "https://github.com/sebastianzwickl/downscaling-paper"
+title: "Disclosing the heat density of district heating for Austria in 2050 under the remaining European CO2 budget of the 1.5°C climate target"
+url: "https://github.com/sebastianzwickl/downscaling-paper"
+
+...
