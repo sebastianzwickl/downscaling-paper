@@ -85,18 +85,21 @@ sc = sorted(pyam.IamDataFrame('sc-heat-density.xlsx').data['value'].values, reve
 figleft.plot(x_val, sc, linewidth=0.75, color='#3E497A')
 figleft.plot(x_val, len(sc)*[10], linewidth=0.5, color='#D9534F')
 figleft.set_title('Societal Commitment', fontsize=6)
+figleft.set_ylim([0, 45])
 
 tf = sorted(pyam.IamDataFrame('tf-heat-density.xlsx').data['value'].values, reverse=True)
 x_val = range(0, len(tf), 1)
 figmid.plot(x_val, tf, linewidth=0.75, color='#3E497A')
 figmid.plot(x_val, len(tf)*[10], linewidth=0.5, color='#D9534F')
 figmid.set_title('Techno-Friendly', fontsize=6)
+figmid.set_ylim([0, 45])
 
 gd = sorted(pyam.IamDataFrame('gd-heat-density.xlsx').data['value'].values, reverse=True)
 x_val = range(0, len(gd), 1)
 figright.plot(x_val, gd, linewidth=0.75, color='#3E497A')
 figright.plot(x_val, len(gd)*[10], linewidth=0.5, color='#D9534F')
 figright.set_title('Gradual Development', fontsize=6)
+figright.set_ylim([0, 45])
 
 figtop.set_title('Directed Transition', fontsize=6)
 

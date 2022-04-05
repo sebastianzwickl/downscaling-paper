@@ -1,9 +1,8 @@
-\newpage
 \section{Materials and methods}\label{methodology}
-This section explains the methodology developed in this work. First, section \ref{res:1} presents the output from the Horizon 2020 project openENTRANCE (incl. GENeSYS-MOD results), since this is the main input for the downscaling. Therein, information about the different heat sources/generation technologies that are downscaled is provided. \added{Section \ref{sec:eq} explains the mathematical formulation of the optimization model in detail. Then, section \ref{sec:workflow} shows the workflow that is used to obtain the implemented shares of district heating.} Finally, section \ref{open} concludes this section and presents further data and open-source tools used in this work.
+This section explains the methodology developed in this work. First, section \ref{res:1} presents the output from the European Horizon 2020 project openENTRANCE (incl. GENeSYS-MOD results), since this is the main input for the downscaling. Therein, information about the different heat sources/generation technologies that are downscaled is provided. \added{Section \ref{sec:eq} explains the mathematical formulation of the optimization model in detail. Then, section \ref{sec:workflow} shows the workflow that is used to determine the implemented shares of district heating.} Finally, section \ref{open} concludes this section and presents further data and open-source tools used in this work.
 
 \subsection{Heat supply of the Austrian residential and commercial sector in 2050: four different decarbonization scenarios}\label{res:1}
-This section presents the heat generation mix covering the Austrian residential and commercial heat demand in 2050 for four different scenarios, which have been developed within the Horizon 2020 openENTRANCE project. They are named as follows: \textit{Directed Transition}, \textit{Societal Commitment}, \textit{Techno-Friendly}, and \textit{Gradual Development}. Within each of them, specific fundamental development of the energy systems is described while aiming for a sustainable transition of the provision of energy services. The first three scenarios assume different approaches to limit global warming to around \SI{1.5}{\degreeCelsius} as laid out in the Paris Agreement. Particularly, the results of these scenarios implicitly consider the remaining European fraction of the CO\textsubscript{2} budget of the 1.5°C climate target. The last scenario (\textit{Gradual Development}) can be interpreted as less ambitions scenario, limiting global warming to around \SI{2.0}{\degreeCelsius} climate target. Accordingly, the results of this scenario consider the remaining European fraction of the CO\textsubscript{2} budget of the 2.0°C climate target. Below, the scenarios are described briefly, before the quantitative results at the country level are presented. For a more detailed description of the scenarios, refer to \cite{auer2020quantitative, auer2020development, hainsch2022energy}. Further information is also available on the website of the project\footnote{\url{https://openentrance.eu/}} and on GitHub\footnote{\url{https://github.com/openENTRANCE}}.\vspace{0.3cm}
+This section presents the heat generation mix covering the Austrian residential and commercial heat demand in 2050 for four different scenarios, which have been developed within the European Horizon 2020 openENTRANCE project. They are named as follows: \textit{Directed Transition}, \textit{Societal Commitment}, \textit{Techno-Friendly}, and \textit{Gradual Development}. Within each of them, specific fundamental development of the energy systems is described while aiming for a sustainable transition of the provision of energy services. The first three scenarios assume different approaches to limit global warming to around \SI{1.5}{\degreeCelsius} as laid out in the Paris Agreement. Particularly, the results of these scenarios implicitly consider the remaining European fraction of the CO\textsubscript{2} budget of the 1.5°C climate target. The last scenario (\textit{Gradual Development}) can be interpreted as a less ambitious scenario, limiting global warming to around \SI{2.0}{\degreeCelsius} climate target. Accordingly, the results of this scenario consider the remaining European fraction of the CO\textsubscript{2} budget of the 2.0°C climate target. Below, the scenarios are described briefly, before the quantitative results at the country level are presented. For a more detailed description of the scenarios, refer to \cite{auer2020quantitative, auer2020development, hainsch2022energy}. Further information is also available on the website of the project\footnote{\url{https://openentrance.eu/}} and on GitHub\footnote{\url{https://github.com/openENTRANCE}}.\vspace{0.3cm}
 
 The underlying concept of the four scenarios is a three-dimensional space consisting of the following parameters: technology, policy, and society. Each scenario describes a specific pathway to reach a decarbonized energy system taking into account a pronounced contribution of two dimensions. Regarding the third dimension, a development is assumed that leads to no significant contribution to the decarbonization of the energy system. 
 
@@ -11,18 +10,19 @@ The underlying concept of the four scenarios is a three-dimensional space consis
 	\item \textit{Directed Transition} looks at a sustainable provision of energy services through strong policy incentives. This bundle of actions becomes necessary because neither the markets nor the society adequately pushes sustainable energy technologies.
 	\item \textit{Societal Commitment} achieves deep decarbonization of the energy system by a strong societal acceptance of the sustainable energy transition and shifts in energy demand patterns. Thereby, decentralized renewable energy technologies together with policy incentives facilitate a sustainable satisfaction of energy service needs. Due to the shift in energy demand, no fundamental breakthroughs of new clean technologies are required.
 	\item \textit{Techno-Friendly} describes a development of the energy system where a significant market-driven breakthrough of renewable energy technologies gives rise to the decarbonization of energy service supply. Additionally, society acceptance supports the penetration of clean energy technologies and the sustainable transition.
-	\item \textit{Gradual Development} differs from the other scenarios: it assumes emissions reductions that (only) stabilize the global temperature increase at \SI{2.0}{\degreeCelsius}. At the same time, a combination of each possible sustainable development initiative of the energy system is realized in this scenario. Although the other three dimensions contribute to decarbonization, they do not push it sufficiently and result in a more conservative scenario than the others.
+	\item \textit{Gradual Development} differs from the other scenarios; it assumes emissions reductions that (only) stabilize the global temperature increase at \SI{2.0}{\degreeCelsius}. At the same time, a combination of each possible sustainable development initiative of the energy system is realized in this scenario. Although the other three dimensions contribute to decarbonization, they do not push it sufficiently, and this results in a more conservative scenario than the others.
 \end{itemize}
 
-Table \ref{tab:comparison} shows the heat generation by source/technology in Austria in 2050 for the four scenarios. These values were obtained during the course of the Horizon 2020 project openENTRANCE and are generated by the open-source aggregate model GENeSYS-MOD \cite{burandt2018genesys}. 
+Table \ref{tab:comparison} shows the heat generation by source/technology in Austria in 2050 for the four scenarios. These values were obtained during the course of the openENTRANCE project and are generated by the open-source aggregate model GENeSYS-MOD \cite{burandt2018genesys}. 
 
 \definecolor{Gray}{gray}{0.95}
 \begin{table}[h]
 	\centering
 	\resizebox{1\textwidth}{!}{% use resizebox with textwidth
-		\renewcommand{\arraystretch}{1.2}
+		\renewcommand{\arraystretch}{1.35}
 		\begin{tabular}{lrrrrr}
 			\toprule 
+			& \multicolumn{5}{c}{obtained from GENeSYS-MOD}\\\cmidrule(lr){2-6}
 			& 2020 & \multicolumn{4}{c}{2050}\\
 			\cmidrule(lr){2-2}\cmidrule(lr){3-6}
 			Generation by source in TWh  & - & DT & SC & TF & GD\\\hline
@@ -36,16 +36,16 @@ Table \ref{tab:comparison} shows the heat generation by source/technology in Aus
 			Oil & 0.66 & 0  & 0  & 0  & 0 \\
 			Synthetic gas & 0 & 0.36  & 1.35  & 2.79  & 5.35 \\
 			Waste & 1.2 & 2  & 2  & 2  & 2 \\\hline
-			\cellcolor{Gray} Total & \cellcolor{Gray}74.0 &\cellcolor{Gray}51.12 & \cellcolor{Gray}48.06&\cellcolor{Gray}49.77 & \cellcolor{Gray}52.07\\
+			\cellcolor{Gray}Total & \cellcolor{Gray}74.0 &\cellcolor{Gray}51.12 & \cellcolor{Gray}48.06&\cellcolor{Gray}49.77 & \cellcolor{Gray}52.07\\
 			Rel. reduction compared to 2020& - & -31\% & -35\% & -33\% & -30\%\\\hline
 			District heating ($Q^{dh}_{GENe}$ in Sec. \ref{sec:eq})&  & 16.75 & 15.38 & 27.20 & 22.84\\
 			\bottomrule
 	\end{tabular}}
-	\caption{Heat generation by source in Austria in 2020 and the four different decarbonization scenarios in 2050. Geothermal, hydrogen, synthetic gas, waste, and half of heat pump (air-sourced) generation is used in district heating. Sources: \cite{auer2020development, konighofer2014potenzial, buchele2015bewertung}}
+	\caption{Heat generation by source in Austria in 2020 and the four different decarbonization scenarios in 2050 \added{obtained from GENeSYS-MOD}. Geothermal, hydrogen, synthetic gas, waste, and half of heat pump (air-sourced) generation is used in district heating. Sources: \cite{auer2020development, konighofer2014potenzial, buchele2015bewertung}}
 	\label{tab:comparison}
 \end{table}
 
-In this work, the naming convention of heat sources/generation technologies from GENeSYS-MOD is essentially followed to ensure consistency between aggregated (i.e., downscaling input values) and local (i.e., dowmscaling output values) levels. Nevertheless, we introduced the heat sources waste and geothermal that were initially not included in the list of heat sources from openENTRANCE results. We separated waste as part of biomass and geothermal from heat pump (ground-sourced) heat generation using estimates from national Austrian studies in \cite{konighofer2014potenzial} and \cite{buchele2015bewertung} to complement the GENeSYS-MOD results. The total heat generation (and thus total heat demand) is significantly reduced when comparing the values of 2020 and 2050. The heat demand reduction varies between -30\% and -35\% and is highest in the \textit{Societal Commitment} scenario. District heating (bottom row in Table \ref{tab:comparison}) describes the amount of heat generation used for district heating. \added{In this work, the assumption is made that geothermal, hydrogen, synthetic gas, waste, and half of the total heat generation by heat pumps (air-sourced ) are used in district heating.} Therefore, we claim that
+In this work, the naming convention of heat sources/generation technologies from GENeSYS-MOD is essentially followed to ensure consistency between aggregated (i.e., downscaling input values) and local (i.e., dowmscaling output values) levels. Nevertheless, we introduced the heat sources waste and geothermal that were initially not included in the list of heat sources from openENTRANCE results. We separated waste as part of biomass and geothermal from heat pump (ground-sourced) heat generation using estimates from national Austrian studies in \cite{konighofer2014potenzial} and \cite{buchele2015bewertung} to complement the GENeSYS-MOD results. \added{Note that the values obtained from GENeSYS-MOD do not explicitly include district heating, which is why its 2020's value in Table \ref{tab:comparison} cannot be specified.} The total heat generation (and thus total heat demand) is significantly reduced when comparing the values of 2020 and 2050. The heat demand reduction varies between -30\% and -35\% and is highest in the \textit{Societal Commitment} scenario. District heating (bottom row in Table \ref{tab:comparison}) describes the amount of heat generation used for district heating. \added{In this work, the assumption is made that geothermal, hydrogen, synthetic gas, waste, and half of the total heat generation by heat pumps (air-sourced) are used in district heating.} Therefore, we claim that
 
 \begin{itemize}
 	\item geothermal \cite{weinand2019developing} and waste \cite{fruergaard2010energy} as renewable heat sources contribute to the decarbonization of heat supply by the integration into district heating.
@@ -63,7 +63,7 @@ Building upon the amount of district heating obtained by the aggregate model GEN
 	\scalebox{0.85}{
 		\begin{tabular}{llrr}
 			\toprule
-			NUTS level  & Description & Number& Example (population)\\\hline
+			NUTS level  & Description & Number& Example (\added{2020's} population)\\\hline
 			\cellcolor{Gray}NUTS0 & \cellcolor{Gray}Country level & \cellcolor{Gray}1 & \cellcolor{Gray}AT Austria (8.86 million)\\
 			NUTS1 & Major socioeconomic regions & 3 & AT3 Western Austria (2.78 million)\\
 			NUTS2 & Basic regions for the application of regional policies (federal states) & 9 & AT31 Upper Austria (1.48 million)\\
@@ -79,26 +79,32 @@ Building upon the amount of district heating obtained by the aggregate model GEN
 	\underset{q^{dh}_l, q^{dec}_l}{\mathrm{max~}} \sum_{l} \underbrace{\frac{q^{dh}_l}{\phi_l \cdot A_l}}_{\text{within LAU $l$}} + \underbrace{\frac{q^{sur}_l}{A^{sur}_l}}_{\text{around LAU $l$}}
 \end{align}
 
-\added{Therein, $q^{dh}_l$ is the amount of district heating supply per LAU, $q^{dec}_l$ the amount of heat demand supply decentralized/on-site, $\phi_l$ a scaling factor to obtain the effective supplied area of district heating based on the permanent settlement area $A_l$ per LAU $l$. This becomes necessary since $A_l$ includes the space available for agriculture, settlement and transport facilities. $q^{env}_l$ is the amount of district heating in the surrounding LAUs of $l$. $A^{sur}_l$ is the effective are of the surroundings LAUs. Equation \ref{upperbound} links the aggregate model GENeSYS-MOD with the developed optimization for the downscaling since the upper bound of district heating is set to the amount of district heating from GENeSYS-MOD's cost-optimal solution $Q^{dh}_{GENe}$.}
+\added{Therein, $q^{dh}_l$ is the amount of district heating supply per LAU, $q^{dec}_l$ the amount of heat demand supply decentralized/on-site, $\phi_l$ a scaling factor to obtain the effective supplied area of district heating based on the permanent settlement area $A_l$ per LAU $l$. This becomes necessary since $A_l$ includes the space available for agriculture, settlement, and transport facilities. $q^{sur}_l$ is the amount of district heating in the surrounding LAUs of $l$. $A^{sur}_l$ is the effective area of the surrounding LAUs. Equation \ref{upperbound} links the aggregate model GENeSYS-MOD with the developed optimization for the downscaling since the upper bound of district heating is set to the amount of district heating from GENeSYS-MOD's cost-optimal solution $Q^{dh}_{GENe}$.}
 	
 \begin{align}\label{upperbound}
-	\sum_{l} q^{dh}_l = Q^{dh}_{GENe}
+	\sum_{l} q^{dh}_l \leq Q^{dh}_{GENe}
 \end{align}
 	
-\added{Equation \ref{demand} is the demand constraint per $l$ ensuring that the total heat demand $q^{total}_l$ is covered either by district heating or decentralized/on-site at $l$.}
+\added{Equation \ref{demand} is the demand constraint per $l$, ensuring that the total heat demand $q^{total}_l$ is covered either by district heating or decentralized/on-site at $l$.}
 
 \begin{align}\label{demand}
 	q^{dh}_l + q^{dec}_l = q^{total}_{l} \quad :\forall l
 \end{align}
 
-\added{Equation \ref{surrounding} calculates the amount of district heating in surrounding areas of $l$ which is expressed by the subset $L^{sur}_{l}$ containing all LAUs bordering $l$ and the effective area $A^{sur}_{l}$. Latter is done similar to the first term (within LAU) in the objective function in Equation \ref{objective}.}
+\added{Equation \ref{surrounding} calculates the amount of district heating in surrounding areas of $l$, which is expressed by the subset $L^{sur}_{l}$ containing all LAUs bordering $l$ and the effective area $A^{sur}_{l}$. Latter is performed similar to the first term (within LAU) in the objective function in Equation \ref{objective}.}
 
 \begin{align}\label{surrounding}
 	q^{sur}_l  = \sum_{l \in L^{sur}_{l}} q^{dh}_{l} \quad \text{and} \quad A^{sur}_l  = \sum_{l \in L^{sur}_{l}} \phi_l \cdot A_l \quad :\forall l
 \end{align}
 
+\added{Equation \ref{negativity} ensures non-negativity of the decision variables $q^{dh}_l$ and $q^{dec}_l$.}
+
+\begin{align}\label{negativity}
+	 q^{dh}_l, q^{dec}_l \geq 0  \quad :\forall l
+\end{align}
+
 \subsection{Workflow to obtain implemented shares of district heating}\label{sec:workflow}
-\added{The described mathematical formulation of the optimization model allocates the amount of district heating to the LAU level in order to maximize the objective function value. However, this not necessarily ensures that obtained heat densities of district heating networks reach the in this work assumed benchmark of} \SI{10}{GWh \per km^2}. \added{Consequently, this section explains in detail how the optimal values of $q^{dh}_l$ (i.e., district heating at the LAU level) is further processed resulting in heat densities of district heating higher than the benchmark value. The developed workflow is as follows:}
+\added{In order to maximize the objective function value, the described mathematical formulation of the optimization model allocates the amount of district heating to the LAU level. However, this does not necessarily ensure that obtained heat densities of district heating networks reach the benchmark of} \SI{10}{GWh \per km^2} \added{being assumed in this work. Consequently, this section explains in detail how the optimal values of $q^{dh}_l$ (i.e., district heating at the LAU level) is further processed resulting in heat densities of district heating higher than the benchmark value. The developed workflow is as follows:}
 
 \begin{enumerate}
 	\item Starting with the optimal amount of district heating $q^{dh}_l$ at the LAU level obtained from the optimization model.
@@ -111,8 +117,7 @@ Building upon the amount of district heating obtained by the aggregate model GEN
 \added{Finally, steps 1 to 5 allow to calculate implemented district heating under the condition that either the local heat density at the LAU or the network heat density at the NUTS3 level achieves the assumed heat density benchmark value of} \SI{10}{GWh \per km^2}.
 
 \subsection{Further data and open-source tools used}\label{open}
-\added{In order to obtain total heat demand at the LAU level ($q^{total}_{l}$), we apply proportional downscaling using population as downscaling proxy.} The fields of application of proportional downscaling are not limited to the modeling of energy systems but to different fields of scientific and practical studies. The reason for this is the intuitive application and that it offers possibilities for tailor-made adaptions, in particular, related to the downscaling driver and proxy. In this context, the study in \cite{van2006downscaling} provides a comprehensive analysis of different proxies for the downscaling of global environmental change, including gross domestic product, emissions and other indicators. However, downscaling aggregated values of energy system often uses proportional downscaling and population as a proxy \cite{alam2018downscaling}. \added{Table \ref{tab:a2} shows the data used to obtain heat demand at the LAU level in 2050 including population estimates for Austria until 2050.}
-
+\added{In order to determine total heat demand at the LAU level ($q^{total}_{l}$), we apply proportional downscaling using population as downscaling proxy.} The fields of application of proportional downscaling are not limited to the modeling of energy systems but to different fields of scientific and practical studies. The reason for this is the intuitive application and that it offers possibilities for tailor-made adaptions, in particular, related to the downscaling driver and proxy. In this context, the study in \cite{van2006downscaling} provides a comprehensive analysis of different proxies for the downscaling of global environmental change, including gross domestic product, emissions, and other indicators. However, downscaling aggregated values of energy system often uses proportional downscaling and population as a proxy \cite{alam2018downscaling}. \added{Table \ref{tab:a2} shows the data used to obtain heat demand at the LAU level in 2050 including population estimates for Austria until 2050. Moreover, we use STATatlas (\url{https://www.statistik.at/atlas/}) in order to set $\phi_l$ for each LAU $l$. The four different categorizes encompass the following items: urban (I), suburban (II), and rural (III and IV). We set $\phi_l$ to 0.5 for urban and suburban LAUs and equal to 1 for rural LAUs.}
 
 \begin{table}[h]
 	\centering
@@ -130,4 +135,4 @@ Building upon the amount of district heating obtained by the aggregate model GEN
 	\label{tab:a2}
 \end{table}
 
-\added{The developed optimization model is implemented in Python 3.8.12 using the modeling framework Pyomo version 5.7.3 \cite{hart2017optimization}.  It is solved with the solver Gurobi version 9.0.3. We use for data analysis the IAMC (Integrated Assessment Modeling Consortium) common data format template with the open-source Python package pyam \cite{huppmann2021pyam}. All materials used in this work are available in the author's GitHub webpage. We refer to the correspodning repository in} \textcolor{magenta}{to be added}.
+\added{The developed optimization model is implemented in Python 3.8.12 using the modeling framework Pyomo version 5.7.3 \cite{hart2017optimization}.  It is solved with the solver Gurobi version 9.0.3. For data analysis, we use the IAMC (Integrated Assessment Modeling Consortium) common data format template with the open-source Python package pyam \cite{huppmann2021pyam}. All materials used in this work are available in the author's GitHub webpage. We refer to the corresponding repository in \cite{Bernhard_Disclosing_the_heat_2022}.}
