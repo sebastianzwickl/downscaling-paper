@@ -15,5 +15,5 @@
 # exclude reference folder
 references/*
 materials/*
-submission/*
-supplementary materials/*
+dissemination/submission/*
+
